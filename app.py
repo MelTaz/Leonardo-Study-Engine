@@ -1,4 +1,5 @@
 import os
+import re
 import json
 import uuid
 import random
@@ -7,6 +8,12 @@ import streamlit as st
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
+
+def escape_dollars(text) -> str:
+    """Escapes unescaped dollar signs so Streamlit does not render text between them as LaTeX math."""
+    if text is None:
+        return ""
+    return re.sub(r'(?<!\\)\$', r'\\$', str(text))
 
 # 1. Open the secure vault and grab the key
 load_dotenv()
@@ -184,14 +191,14 @@ with tab1:
         
         user_answers = {}
         for i, q in enumerate(st.session_state.quiz_data):
-            st.write(f"**Question {i+1}:** {q['question']}")
+            st.write(f"**Question {i+1}:** {escape_dollars(q['question'])}")
             
             unique_key = f"q_{st.session_state.quiz_id}_{i}"
             
             if q.get('type') == 'free_text':
                 user_answers[i] = st.text_input("Type your answer here:", key=unique_key)
             else:
-                user_answers[i] = st.radio("Choose an answer:", q['options'], key=unique_key, index=None)
+                user_answers[i] = st.radio("Choose an answer:", q['options'], key=unique_key, index=None, format_func=escape_dollars)
             
             st.write("---")
             
@@ -203,9 +210,9 @@ with tab1:
             st.subheader("📊 Quiz Feedback")
             
             for i, q in enumerate(st.session_state.quiz_data):
-                clean_q = q['question'].replace('$', r'\$')
-                clean_exp = q['explanation'].replace('$', r'\$')
-                clean_correct = str(q['correct_answer']).replace('$', r'\$')
+                clean_q = escape_dollars(q['question'])
+                clean_exp = escape_dollars(q['explanation'])
+                clean_correct = escape_dollars(q['correct_answer'])
                 
                 user_ans = user_answers[i]
                 is_correct = False
@@ -228,7 +235,7 @@ with tab1:
                         "explanation": clean_exp
                     })
                 else:
-                    user_ans_clean = str(user_ans).replace('$', r'\$')
+                    user_ans_clean = escape_dollars(user_ans)
                     st.info(f"**Question {i+1}: Good try, but not quite!** The correct answer is **{clean_correct}**. \n\n*Helpful tip:* {clean_exp}")
                     incorrect_summary.append({
                         "question": clean_q,
@@ -354,10 +361,10 @@ with tab2:
                 if log['mistakes']:
                     st.error(f"Areas to Review ({len(log['mistakes'])} missed/skipped):")
                     for mistake in log['mistakes']:
-                        st.write(f"**Q:** {mistake['question']}")
-                        st.write(f"❌ **Selected:** {mistake['selected']}")
-                        st.write(f"✅ **Correct:** {mistake['correct']}")
-                        st.caption(f"*AI Note:* {mistake['explanation']}")
+                        st.write(f"**Q:** {escape_dollars(mistake['question'])}")
+                        st.write(f"❌ **Selected:** {escape_dollars(mistake['selected'])}")
+                        st.write(f"✅ **Correct:** {escape_dollars(mistake['correct'])}")
+                        st.caption(f"*AI Note:* {escape_dollars(mistake['explanation'])}")
                         st.write("---")
                 else:
                     st.success("Perfect score! No mistakes to review.")
