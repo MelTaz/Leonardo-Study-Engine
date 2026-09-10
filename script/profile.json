@@ -1,0 +1,277 @@
+{
+    "summary": {
+        "Italian": {
+            "total_questions": 50,
+            "total_correct": 13
+        }
+    },
+    "history": [
+        {
+            "date": "2026-09-10 02:21 PM",
+            "topic": "Italian",
+            "difficulty": "1 - Easy",
+            "score": 2,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "What color is \"rosso\"?",
+                    "selected": "Skipped",
+                    "correct": "Red",
+                    "explanation": "Great job! \"Rosso\" means red in Italian."
+                },
+                {
+                    "question": "Translate \"Hello\" into Italian.",
+                    "selected": "Skipped",
+                    "correct": "Ciao",
+                    "explanation": "Well done! \"Ciao\" is the Italian word for hello."
+                },
+                {
+                    "question": "What number is \"tre\"?",
+                    "selected": "Skipped",
+                    "correct": "3",
+                    "explanation": "Fantastic! \"Tre\" is the number 3 in Italian."
+                },
+                {
+                    "question": "What is the Italian word for \"dog\"?",
+                    "selected": "Skipped",
+                    "correct": "cane",
+                    "explanation": "Super! \"Cane\" is the Italian word for dog."
+                },
+                {
+                    "question": "Which word means \"mother\" in Italian?",
+                    "selected": "Skipped",
+                    "correct": "Mamma",
+                    "explanation": "Spot on! \"Mamma\" means mother in Italian."
+                },
+                {
+                    "question": "Translate the day \"Luned\u00ec\" into English.",
+                    "selected": "Skipped",
+                    "correct": "Monday",
+                    "explanation": "Awesome! \"Luned\u00ec\" is Monday in Italian."
+                },
+                {
+                    "question": "What does \"Io sono\" mean in English?",
+                    "selected": "Skipped",
+                    "correct": "I am",
+                    "explanation": "Excellent! \"Io sono\" translates to \"I am\"."
+                },
+                {
+                    "question": "Which Italian word means \"thank you\"?",
+                    "selected": "Skipped",
+                    "correct": "Grazie",
+                    "explanation": "Bravo! \"Grazie\" means thank you in Italian."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-10 02:22 PM",
+            "topic": "Italian",
+            "difficulty": "1 - Easy",
+            "score": 3,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "Translate \"Hello\" into Italian.",
+                    "selected": "Skipped",
+                    "correct": "Ciao",
+                    "explanation": "Well done! \"Ciao\" is the Italian word for hello."
+                },
+                {
+                    "question": "What number is \"tre\"?",
+                    "selected": "Skipped",
+                    "correct": "3",
+                    "explanation": "Fantastic! \"Tre\" is the number 3 in Italian."
+                },
+                {
+                    "question": "What is the Italian word for \"dog\"?",
+                    "selected": "Skipped",
+                    "correct": "cane",
+                    "explanation": "Super! \"Cane\" is the Italian word for dog."
+                },
+                {
+                    "question": "Which word means \"mother\" in Italian?",
+                    "selected": "Skipped",
+                    "correct": "Mamma",
+                    "explanation": "Spot on! \"Mamma\" means mother in Italian."
+                },
+                {
+                    "question": "Translate the day \"Luned\u00ec\" into English.",
+                    "selected": "Skipped",
+                    "correct": "Monday",
+                    "explanation": "Awesome! \"Luned\u00ec\" is Monday in Italian."
+                },
+                {
+                    "question": "What does \"Io sono\" mean in English?",
+                    "selected": "Skipped",
+                    "correct": "I am",
+                    "explanation": "Excellent! \"Io sono\" translates to \"I am\"."
+                },
+                {
+                    "question": "Which Italian word means \"thank you\"?",
+                    "selected": "Skipped",
+                    "correct": "Grazie",
+                    "explanation": "Bravo! \"Grazie\" means thank you in Italian."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-10 02:23 PM",
+            "topic": "Italian",
+            "difficulty": "1 - Easy",
+            "score": 3,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "What number is 'tre' in English?",
+                    "selected": "Skipped",
+                    "correct": "3",
+                    "explanation": "'Tre' is the Italian word for the number 3."
+                },
+                {
+                    "question": "What is the English word for 'cane'?",
+                    "selected": "Skipped",
+                    "correct": "Dog",
+                    "explanation": "'Cane' means dog in Italian!"
+                },
+                {
+                    "question": "What is the Italian word for 'mother'?",
+                    "selected": "Madre",
+                    "correct": "mamma",
+                    "explanation": "'Mamma' is the Italian word for mother or mom."
+                },
+                {
+                    "question": "Translate the day 'Luned\u00ec' into English.",
+                    "selected": "Skipped",
+                    "correct": "Monday",
+                    "explanation": "'Luned\u00ec' is the Italian word for Monday."
+                },
+                {
+                    "question": "What is the Italian word for 'cat'?",
+                    "selected": "Skipped",
+                    "correct": "Gatto",
+                    "explanation": "'Gatto' is the Italian word for cat."
+                },
+                {
+                    "question": "Which word means 'father' in Italian?",
+                    "selected": "Skipped",
+                    "correct": "Pap\u00e0",
+                    "explanation": "'Pap\u00e0' means dad or father in Italian."
+                },
+                {
+                    "question": "How do you say 'Good morning' in Italian?",
+                    "selected": "Skipped",
+                    "correct": "Buongiorno",
+                    "explanation": "'Buongiorno' is used to say good morning in Italian."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-10 02:30 PM",
+            "topic": "Italian",
+            "difficulty": "3 - Hard",
+            "score": 0,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "Ieri Marco \u00e8 andato al parco con il suo cane. Ha giocato a calcio con i suoi amici fino a sera. Che cosa ha fatto Marco al parco?",
+                    "selected": "Skipped",
+                    "correct": "Ha giocato a calcio",
+                    "explanation": "Nel testo c'\u00e8 scritto chiaramente che Marco 'ha giocato a calcio con i suoi amici'."
+                },
+                {
+                    "question": "Sofia era stanca perch\u00e9 ha studiato tutto il pomeriggio. Quindi \u00e8 andata a dormire presto. Perch\u00e9 Sofia \u00e8 antenna a dormire presto?",
+                    "selected": "Because she was tired",
+                    "correct": "era stanca",
+                    "explanation": "Sofia \u00e8 antenna a dormire presto perch\u00e9 era stanca dopo aver studiato."
+                },
+                {
+                    "question": "Luca voleva uscire a giocare, ___ pioveva molto forte. Allora \u00e8 rimasto a casa. Quale congiunzione completa correttamente la frase?",
+                    "selected": "Skipped",
+                    "correct": "ma",
+                    "explanation": "Usiamo 'ma' per collegare due idee in contrasto: voleva uscire, MA pioveva."
+                },
+                {
+                    "question": "Ieri noi abbiamo festeggiato il compleanno di Maria. Noi ___ mangiato una torta deliziosa. Scrivi la parola mancante per completare il passato prossimo.",
+                    "selected": "Skipped",
+                    "correct": "abbiamo",
+                    "explanation": "Il passato prossimo per 'noi' con il verbo mangiare \u00e8 'noi abbiamo mangiato'."
+                },
+                {
+                    "question": "Anna ha preparato lo zaino mentre la mamma cucinava la cena. Poi sono uscite insieme. Che cosa faceva la mamma mentre Anna preparava lo zaino?",
+                    "selected": "Skipped",
+                    "correct": "Cucinava la cena",
+                    "explanation": "Il testo dice che 'la mamma cucinava la cena' mentre Anna preparava lo zaino."
+                },
+                {
+                    "question": "Sabato scorso Matteo \u00e8 andato al museo di scienze naturali. L\u00ec ha visto un grande scheletro di dinosauro. Dove \u00e8 andato Matteo sabato scorso?",
+                    "selected": "Skipped",
+                    "correct": "al museo",
+                    "explanation": "Matteo \u00e8 andato al museo di scienze naturali."
+                },
+                {
+                    "question": "Francesca ascolta la musica ___ fa i compiti di matematica. Le piace fare due cose nello stesso momento! Quale parola completa la frase?",
+                    "selected": "Skipped",
+                    "correct": "mentre",
+                    "explanation": "Usiamo 'mentre' quando due azioni avvengono nello stesso momento."
+                },
+                {
+                    "question": "Ieri sera Giulia e Sara sono ___ al cinema a vedere un film d'animazione. Completa la frase con il participio passato corretto del verbo andare.",
+                    "selected": "Skipped",
+                    "correct": "andate",
+                    "explanation": "Con l'ausiliare 'essere' e un soggetto femminile plurale (Giulia e Sara), usiamo 'andate'."
+                },
+                {
+                    "question": "Il gatto Fuffi ha visto un uccellino sul balcone. \u00c8 saltato sulla sedia, ma l'uccellino \u00e8 volato via subito. Perch\u00e9 il gatto non ha preso l'uccellino?",
+                    "selected": "Skipped",
+                    "correct": "Perch\u00e9 l'uccellino \u00e8 volato via",
+                    "explanation": "L'uccellino \u00e8 volato via subito, quindi il gatto non \u00e8 riuscito a prenderlo."
+                },
+                {
+                    "question": "Paolo ha cercato le sue chiavi per un'ora. Alla fine le ___ trovate sotto il divano. Scrivi il verbo ausiliare mancante.",
+                    "selected": "Skipped",
+                    "correct": "ha",
+                    "explanation": "Per completare 'Paolo le ha trovate', serve l'ausiliare 'ha'."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-10 02:35 PM",
+            "topic": "Italian",
+            "difficulty": "1 - Easy",
+            "score": 5,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "Completa la frase con la parola corretta: Il mio _____ abbaia in giardino e fa 'bau bau'.",
+                    "selected": "Skipped",
+                    "correct": "cane",
+                    "explanation": "L'animale domestico che abbaia e fa 'bau bau' \u00e8 il cane!"
+                },
+                {
+                    "question": "Scegli l'articolo corretto: _____ cane di Luca corre molto veloce nel parco.",
+                    "selected": "Skipped",
+                    "correct": "Il",
+                    "explanation": "'Cane' \u00e8 un nome maschile singolare, quindi usiamo l'articolo 'Il'."
+                },
+                {
+                    "question": "Completa la risposta: \u2014 Ciao! Come ti chiami? \u2014 Ciao, io _____ Matteo.",
+                    "selected": "Skipped",
+                    "correct": "sono",
+                    "explanation": "Per presentarsi si dice 'Io sono Matteo' oppure 'Mi chiamo Matteo'."
+                },
+                {
+                    "question": "Come rispondi a un amico che ti chiede: 'Come stai, Giulia?'",
+                    "selected": "Skipped",
+                    "correct": "Sto bene, grazie!",
+                    "explanation": "Alla domanda 'Come stai?' si risponde esprimendo come ci si sente, come 'Sto bene, grazie!'."
+                },
+                {
+                    "question": "Conta i gatti nel giardino: uno, due, _____! Quanti gatti ci sono in totale?",
+                    "selected": "Skipped",
+                    "correct": "tre",
+                    "explanation": "Dopo il numero due viene il numero tre."
+                }
+            ]
+        }
+    ]
+}

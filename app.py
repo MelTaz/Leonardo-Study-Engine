@@ -3,6 +3,7 @@ import re
 import json
 import uuid
 import random
+import unicodedata
 from datetime import datetime
 import streamlit as st
 from dotenv import load_dotenv
@@ -14,6 +15,57 @@ def escape_dollars(text) -> str:
     if text is None:
         return ""
     return re.sub(r'(?<!\\)\$', r'\\$', str(text))
+
+def strip_accents(text: str) -> str:
+    """Strips accents from characters for accent-tolerant matching."""
+    nfkd = unicodedata.normalize('NFKD', text)
+    return ''.join(c for c in nfkd if not unicodedata.combining(c))
+
+def normalize_italian(text: str) -> str:
+    """Normalizes Italian text, handling apostrophe-based accents like e' -> è."""
+    if text is None:
+        return ""
+    t = str(text).strip().lower().replace("’", "'").replace("`", "'")
+    t = re.sub(r"([aeiou])\s*'", r"\1'", t)
+    apostrophe_map = {
+        "e'": "è",
+        "a'": "à",
+        "i'": "ì",
+        "o'": "ò",
+        "u'": "ù",
+    }
+    for k, v in apostrophe_map.items():
+        t = t.replace(k, v)
+    return t.strip(" .?!,;:'\"")
+
+def check_answer(user_ans, correct_ans, is_free_text: bool = False, is_italian: bool = False) -> tuple[bool, bool]:
+    """
+    Checks user answer against correct answer.
+    Returns (is_correct, is_accent_tip)
+    """
+    if user_ans is None or str(user_ans).strip() == "":
+        return False, False
+        
+    if not is_free_text:
+        return (user_ans == correct_ans, False)
+        
+    u_str = str(user_ans).strip().lower().strip(" .?!,;:'\"")
+    c_str = str(correct_ans).strip().lower().strip(" .?!,;:'\"")
+    
+    if u_str == c_str:
+        return True, False
+        
+    if is_italian:
+        u_norm = normalize_italian(user_ans)
+        c_norm = normalize_italian(correct_ans)
+        
+        if u_norm == c_norm:
+            return True, False
+            
+        if strip_accents(u_norm) == strip_accents(c_norm):
+            return True, True
+            
+    return False, False
 
 # 1. Open the secure vault and grab the key
 load_dotenv()
@@ -134,10 +186,21 @@ with tab1:
             subject_rules = ""
             if subject_focus == "Italian":
                 subject_rules = """
-            SPECIAL RULES FOR ITALIAN:
-            - NEVER include English translations in brackets next to the Italian words in the questions or the options.
-            - If difficulty is '1 - Easy' or '2 - Medium', focus on vocabulary, basic verbs, and simple sentence translation without giving hints.
-            - If difficulty is '3 - Hard', make the questions conversational (e.g., how to respond to a specific Italian prompt, completing a realistic dialogue, or understanding the context of a conversation).
+            SPECIAL RULES FOR ITALIAN (BILINGUAL SCHOOL STUDENT):
+            - Leonardo attends an Italian bilingual school. Do NOT treat him as an absolute beginner; NEVER test isolated single-word flashcards (e.g., do NOT ask 'What is dog in Italian?').
+            - NEVER include English translations in brackets next to Italian words in questions or options. Use Italian context or natural scenario prompts.
+            - If difficulty is '1 - Easy' (Solid A1 Conversational & Everyday Language):
+              * Realistic dialogues and conversational exchanges (e.g., greetings, how to introduce someone, asking personal questions like 'Di dove sei?' or 'Quanti anni hai?').
+              * Everyday situational responses (e.g., expressing needs like 'ho fame' / 'ho sete', asking permission like 'Posso...?').
+              * Core verbs in sentence context (essere, avere, high-frequency regular verbs), and gender/plural agreements for articles and adjectives.
+            - If difficulty is '2 - Medium' (Upper A1 / Early A2 - Sentences & Routines):
+              * Expressing preferences with explanations ('Ti piace...?' / 'Sì, mi piace... perché...').
+              * Daily routines, telling time, school activities, and prepositions (a, in, da, con, per).
+              * Question words (Chi, Che cosa, Dove, Quando, Perché, Come) and logical sentence completion.
+            - If difficulty is '3 - Hard' (Solid A2 - Mini-Stories & Reading Comprehension):
+              * Present a short 2–3 sentence mini-story or scenario in Italian, followed by a comprehension question in Italian (e.g., 'Dove va Giulia dopo la scuola?').
+              * Conjunctions (mentre, ma, perché, quindi) and common past tense (passato prossimo with essere/avere, e.g., 'ho mangiato', 'è andato').
+            - For any 'free_text' questions, ensure the expected correct_answer is concise (1 to 3 words, such as 'è', 'perché', 'al parco', 'ho finito') so a Year 3 student can type it easily.
             """
             elif subject_focus == "Fractions":
                 subject_rules = """
@@ -196,7 +259,14 @@ with tab1:
             unique_key = f"q_{st.session_state.quiz_id}_{i}"
             
             if q.get('type') == 'free_text':
-                user_answers[i] = st.text_input("Type your answer here:", key=unique_key)
+                if st.session_state.quiz_subject == "Italian":
+                    st.caption("💡 *Tip: To write an accent, just type an apostrophe after the letter (e.g. type **e'** for **è**).*")
+                    input_label = "Type your answer in Italian (Scrivi in italiano):"
+                    input_placeholder = "Scrivi la risposta in italiano qui..."
+                else:
+                    input_label = "Type your answer here:"
+                    input_placeholder = ""
+                user_answers[i] = st.text_input(input_label, placeholder=input_placeholder, key=unique_key)
             else:
                 user_answers[i] = st.radio("Choose an answer:", q['options'], key=unique_key, index=None, format_func=escape_dollars)
             
@@ -206,6 +276,7 @@ with tab1:
             score = 0
             total_questions = len(st.session_state.quiz_data)
             incorrect_summary = [] 
+            is_italian = (st.session_state.quiz_subject == "Italian")
             
             st.subheader("📊 Quiz Feedback")
             
@@ -215,17 +286,20 @@ with tab1:
                 clean_correct = escape_dollars(q['correct_answer'])
                 
                 user_ans = user_answers[i]
-                is_correct = False
-                
-                if user_ans is not None and str(user_ans).strip() != "":
-                    if q.get('type') == 'free_text':
-                        is_correct = str(user_ans).strip().lower() == str(q['correct_answer']).strip().lower()
-                    else:
-                        is_correct = user_ans == q['correct_answer']
+                is_free = (q.get('type') == 'free_text')
+                is_correct, is_accent_tip = check_answer(
+                    user_ans=user_ans,
+                    correct_ans=q['correct_answer'],
+                    is_free_text=is_free,
+                    is_italian=is_italian
+                )
 
                 if is_correct:
                     score += 1
-                    st.success(f"**Question {i+1}: Spot on! 🎉** \n\n*Why it's right:* {clean_exp}")
+                    if is_accent_tip:
+                        st.success(f"**Question {i+1}: Spot on! 🎉** *(Tip: In Italian, remember the accent: **{clean_correct}**)* \n\n*Why it's right:* {clean_exp}")
+                    else:
+                        st.success(f"**Question {i+1}: Spot on! 🎉** \n\n*Why it's right:* {clean_exp}")
                 elif user_ans is None or str(user_ans).strip() == "":
                     st.warning(f"**Question {i+1}: You skipped this one!** The correct answer is **{clean_correct}**. \n\n*Helpful tip:* {clean_exp}")
                     incorrect_summary.append({
