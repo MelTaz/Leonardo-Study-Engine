@@ -1,6 +1,7 @@
 import os
 import json
 import uuid
+import random
 from datetime import datetime
 import streamlit as st
 from dotenv import load_dotenv
@@ -239,16 +240,65 @@ with tab1:
             st.write("---")
             st.subheader(f"Final Score: {score} out of {total_questions} 🌟")
             
-            if score == total_questions:
-                st.balloons() 
-                st.markdown("""
-                <div style="text-align: center; background-color: #f0f2f6; padding: 20px; border-radius: 10px;">
-                    <h1 style="font-size: 80px;">🧙‍♂️✨</h1>
-                    <h2>Behold! The Wizard of Wisdom says:</h2>
-                    <h3>"A PERFECT 10! Your brain power is unmatched, Leonardo! Fantastic job!"</h3>
-                </div>
-                """, unsafe_allow_html=True)
+            # --- NEW DYNAMIC ENCOURAGEMENT LOGIC ---
+            percentage = score / total_questions if total_questions > 0 else 0
             
+            if percentage == 1.0:
+                st.balloons()
+                emoji = "🧙‍♂️✨🏆"
+                title = "Behold! The Wizard of Wisdom says:"
+                messages = [
+                    "A PERFECT SCORE! Your brain power is unmatched, Leonardo! Fantastic job!",
+                    "Flawless victory! Are you sure you're not a supercomputer in disguise?",
+                    "100%! The Wizard is taking notes from YOU now, Leonardo!"
+                ]
+                bg_color = "#d4edda" # Triumphant Green
+                
+            elif percentage >= 0.8:
+                st.balloons()
+                emoji = "🚀🔥"
+                title = "Incredible work, Leonardo!"
+                messages = [
+                    "Almost perfect! The Wizard is highly impressed with your skills.",
+                    "You are absolutely crushing it! Just a tiny step away from a perfect score.",
+                    "Amazing job! Your brain is growing stronger every second!"
+                ]
+                bg_color = "#cce5ff" # Heroic Blue
+                
+            elif percentage >= 0.5:
+                emoji = "🧠⚡"
+                title = "Great effort, Leonardo!"
+                messages = [
+                    "Solid work! You're getting the hang of this. Let's try another one and beat this score!",
+                    "Not bad at all! Every question you answer makes you smarter. Ready for round two?",
+                    "The Wizard sees your potential! A little more practice and you'll be unstoppable!"
+                ]
+                bg_color = "#fff3cd" # Encouraging Yellow
+                
+            else:
+                emoji = "💪🌱"
+                title = "Keep pushing, Leonardo!"
+                messages = [
+                    "Every master was once a beginner! Mistakes just mean you're learning. Let's try again!",
+                    "The Wizard says: 'Even the strongest wizards need practice!' Give it another go!",
+                    "A tough one, but you didn't give up! Let's do another quiz and level up your brain!"
+                ]
+                bg_color = "#f8d7da" # Motivating Red (light)
+
+            # Pick a random message from the chosen tier
+            selected_message = random.choice(messages)
+
+            # Display the dynamic feedback card
+            st.markdown(f"""
+            <div style="text-align: center; background-color: {bg_color}; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+                <h1 style="font-size: 80px; margin: 0;">{emoji}</h1>
+                <h2 style="color: #333;">{title}</h2>
+                <h3 style="color: #444; font-style: italic;">"{selected_message}"</h3>
+            </div>
+            """, unsafe_allow_html=True)
+            # --- END NEW LOGIC ---
+
+            # Continue with your existing code saving the log to the profile...
             topic = st.session_state.quiz_subject
             diff = st.session_state.quiz_difficulty
             
