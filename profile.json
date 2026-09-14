@@ -1,275 +1,166 @@
 {
     "summary": {
         "Italian": {
-            "total_questions": 50,
-            "total_correct": 13
+            "total_questions": 20,
+            "total_correct": 12
+        },
+        "Maths ICAS Prep": {
+            "total_questions": 20,
+            "total_correct": 17
+        },
+        "Fractions": {
+            "total_questions": 20,
+            "total_correct": 15
         }
     },
     "history": [
         {
-            "date": "2026-09-10 02:21 PM",
+            "date": "2026-09-12 07:30 AM",
             "topic": "Italian",
             "difficulty": "1 - Easy",
-            "score": 2,
+            "score": 7,
             "total": 10,
             "mistakes": [
                 {
-                    "question": "What color is \"rosso\"?",
-                    "selected": "Skipped",
-                    "correct": "Red",
-                    "explanation": "Great job! \"Rosso\" means red in Italian."
+                    "question": "Matteo vuole sapere l'et\u00e0 di Sofia e le chiede: \"Quanti anni _____?\" Completa con la parola giusta.",
+                    "selected": "ha",
+                    "correct": "hai",
+                    "explanation": "Fantastic! To ask someone's age, we use 'tu hai': 'Quanti anni hai?'."
                 },
                 {
-                    "question": "Translate \"Hello\" into Italian.",
-                    "selected": "Skipped",
-                    "correct": "Ciao",
-                    "explanation": "Well done! \"Ciao\" is the Italian word for hello."
+                    "question": "Nel cestino della frutta ci sono due mele molto ____.",
+                    "selected": "rosso",
+                    "correct": "rosse",
+                    "explanation": "Bravo! 'Mele' is feminine plural, so the adjective must also end in '-e' ('rosse')."
                 },
                 {
-                    "question": "What number is \"tre\"?",
-                    "selected": "Skipped",
-                    "correct": "3",
-                    "explanation": "Fantastic! \"Tre\" is the number 3 in Italian."
-                },
-                {
-                    "question": "What is the Italian word for \"dog\"?",
-                    "selected": "Skipped",
-                    "correct": "cane",
-                    "explanation": "Super! \"Cane\" is the Italian word for dog."
-                },
-                {
-                    "question": "Which word means \"mother\" in Italian?",
-                    "selected": "Skipped",
-                    "correct": "Mamma",
-                    "explanation": "Spot on! \"Mamma\" means mother in Italian."
-                },
-                {
-                    "question": "Translate the day \"Luned\u00ec\" into English.",
-                    "selected": "Skipped",
-                    "correct": "Monday",
-                    "explanation": "Awesome! \"Luned\u00ec\" is Monday in Italian."
-                },
-                {
-                    "question": "What does \"Io sono\" mean in English?",
-                    "selected": "Skipped",
-                    "correct": "I am",
-                    "explanation": "Excellent! \"Io sono\" translates to \"I am\"."
-                },
-                {
-                    "question": "Which Italian word means \"thank you\"?",
-                    "selected": "Skipped",
-                    "correct": "Grazie",
-                    "explanation": "Bravo! \"Grazie\" means thank you in Italian."
+                    "question": "Ogni pomeriggio, io e il mio amico _____ a pallone nel cortile della scuola. (Completa con il verbo 'giocare' per 'noi').",
+                    "selected": "giocare",
+                    "correct": "giochiamo",
+                    "explanation": "Awesome effort! For 'noi' (io e il mio amico), the present tense of 'giocare' is 'giochiamo'."
                 }
             ]
         },
         {
-            "date": "2026-09-10 02:22 PM",
-            "topic": "Italian",
+            "date": "2026-09-12 05:58 PM",
+            "topic": "Maths ICAS Prep",
             "difficulty": "1 - Easy",
-            "score": 3,
+            "score": 9,
             "total": 10,
             "mistakes": [
                 {
-                    "question": "Translate \"Hello\" into Italian.",
-                    "selected": "Skipped",
-                    "correct": "Ciao",
-                    "explanation": "Well done! \"Ciao\" is the Italian word for hello."
-                },
-                {
-                    "question": "What number is \"tre\"?",
-                    "selected": "Skipped",
-                    "correct": "3",
-                    "explanation": "Fantastic! \"Tre\" is the number 3 in Italian."
-                },
-                {
-                    "question": "What is the Italian word for \"dog\"?",
-                    "selected": "Skipped",
-                    "correct": "cane",
-                    "explanation": "Super! \"Cane\" is the Italian word for dog."
-                },
-                {
-                    "question": "Which word means \"mother\" in Italian?",
-                    "selected": "Skipped",
-                    "correct": "Mamma",
-                    "explanation": "Spot on! \"Mamma\" means mother in Italian."
-                },
-                {
-                    "question": "Translate the day \"Luned\u00ec\" into English.",
-                    "selected": "Skipped",
-                    "correct": "Monday",
-                    "explanation": "Awesome! \"Luned\u00ec\" is Monday in Italian."
-                },
-                {
-                    "question": "What does \"Io sono\" mean in English?",
-                    "selected": "Skipped",
-                    "correct": "I am",
-                    "explanation": "Excellent! \"Io sono\" translates to \"I am\"."
-                },
-                {
-                    "question": "Which Italian word means \"thank you\"?",
-                    "selected": "Skipped",
-                    "correct": "Grazie",
-                    "explanation": "Bravo! \"Grazie\" means thank you in Italian."
+                    "question": "Leo has 4 red toy cars, 2 blue toy cars, and 5 green toy cars. How many toy cars does he have in total?",
+                    "selected": "12",
+                    "correct": "11",
+                    "explanation": "Great thinking! Add all the cars together: 4 + 2 + 5 = 11 cars."
                 }
             ]
         },
         {
-            "date": "2026-09-10 02:23 PM",
-            "topic": "Italian",
+            "date": "2026-09-12 06:05 PM",
+            "topic": "Maths ICAS Prep",
             "difficulty": "1 - Easy",
-            "score": 3,
+            "score": 8,
             "total": 10,
             "mistakes": [
                 {
-                    "question": "What number is 'tre' in English?",
-                    "selected": "Skipped",
-                    "correct": "3",
-                    "explanation": "'Tre' is the Italian word for the number 3."
+                    "question": "Sam scored 4 points in game one, 5 points in game two, and 3 points in game three. How many total points did Sam score?",
+                    "selected": "13",
+                    "correct": "12",
+                    "explanation": "Add all the scores together: 4 + 5 + 3 = 12 points!"
                 },
                 {
-                    "question": "What is the English word for 'cane'?",
-                    "selected": "Skipped",
-                    "correct": "Dog",
-                    "explanation": "'Cane' means dog in Italian!"
-                },
-                {
-                    "question": "What is the Italian word for 'mother'?",
-                    "selected": "Madre",
-                    "correct": "mamma",
-                    "explanation": "'Mamma' is the Italian word for mother or mom."
-                },
-                {
-                    "question": "Translate the day 'Luned\u00ec' into English.",
-                    "selected": "Skipped",
-                    "correct": "Monday",
-                    "explanation": "'Luned\u00ec' is the Italian word for Monday."
-                },
-                {
-                    "question": "What is the Italian word for 'cat'?",
-                    "selected": "Skipped",
-                    "correct": "Gatto",
-                    "explanation": "'Gatto' is the Italian word for cat."
-                },
-                {
-                    "question": "Which word means 'father' in Italian?",
-                    "selected": "Skipped",
-                    "correct": "Pap\u00e0",
-                    "explanation": "'Pap\u00e0' means dad or father in Italian."
-                },
-                {
-                    "question": "How do you say 'Good morning' in Italian?",
-                    "selected": "Skipped",
-                    "correct": "Buongiorno",
-                    "explanation": "'Buongiorno' is used to say good morning in Italian."
+                    "question": "A baker made 2 chocolate cupcakes, 5 vanilla cupcakes, and 6 strawberry cupcakes. How many cupcakes did the baker make in total?",
+                    "selected": "12",
+                    "correct": "13",
+                    "explanation": "Add all the cupcakes together: 2 + 5 + 6 = 13 cupcakes!"
                 }
             ]
         },
         {
-            "date": "2026-09-10 02:30 PM",
-            "topic": "Italian",
-            "difficulty": "3 - Hard",
-            "score": 0,
-            "total": 10,
-            "mistakes": [
-                {
-                    "question": "Ieri Marco \u00e8 andato al parco con il suo cane. Ha giocato a calcio con i suoi amici fino a sera. Che cosa ha fatto Marco al parco?",
-                    "selected": "Skipped",
-                    "correct": "Ha giocato a calcio",
-                    "explanation": "Nel testo c'\u00e8 scritto chiaramente che Marco 'ha giocato a calcio con i suoi amici'."
-                },
-                {
-                    "question": "Sofia era stanca perch\u00e9 ha studiato tutto il pomeriggio. Quindi \u00e8 andata a dormire presto. Perch\u00e9 Sofia \u00e8 antenna a dormire presto?",
-                    "selected": "Because she was tired",
-                    "correct": "era stanca",
-                    "explanation": "Sofia \u00e8 antenna a dormire presto perch\u00e9 era stanca dopo aver studiato."
-                },
-                {
-                    "question": "Luca voleva uscire a giocare, ___ pioveva molto forte. Allora \u00e8 rimasto a casa. Quale congiunzione completa correttamente la frase?",
-                    "selected": "Skipped",
-                    "correct": "ma",
-                    "explanation": "Usiamo 'ma' per collegare due idee in contrasto: voleva uscire, MA pioveva."
-                },
-                {
-                    "question": "Ieri noi abbiamo festeggiato il compleanno di Maria. Noi ___ mangiato una torta deliziosa. Scrivi la parola mancante per completare il passato prossimo.",
-                    "selected": "Skipped",
-                    "correct": "abbiamo",
-                    "explanation": "Il passato prossimo per 'noi' con il verbo mangiare \u00e8 'noi abbiamo mangiato'."
-                },
-                {
-                    "question": "Anna ha preparato lo zaino mentre la mamma cucinava la cena. Poi sono uscite insieme. Che cosa faceva la mamma mentre Anna preparava lo zaino?",
-                    "selected": "Skipped",
-                    "correct": "Cucinava la cena",
-                    "explanation": "Il testo dice che 'la mamma cucinava la cena' mentre Anna preparava lo zaino."
-                },
-                {
-                    "question": "Sabato scorso Matteo \u00e8 andato al museo di scienze naturali. L\u00ec ha visto un grande scheletro di dinosauro. Dove \u00e8 andato Matteo sabato scorso?",
-                    "selected": "Skipped",
-                    "correct": "al museo",
-                    "explanation": "Matteo \u00e8 andato al museo di scienze naturali."
-                },
-                {
-                    "question": "Francesca ascolta la musica ___ fa i compiti di matematica. Le piace fare due cose nello stesso momento! Quale parola completa la frase?",
-                    "selected": "Skipped",
-                    "correct": "mentre",
-                    "explanation": "Usiamo 'mentre' quando due azioni avvengono nello stesso momento."
-                },
-                {
-                    "question": "Ieri sera Giulia e Sara sono ___ al cinema a vedere un film d'animazione. Completa la frase con il participio passato corretto del verbo andare.",
-                    "selected": "Skipped",
-                    "correct": "andate",
-                    "explanation": "Con l'ausiliare 'essere' e un soggetto femminile plurale (Giulia e Sara), usiamo 'andate'."
-                },
-                {
-                    "question": "Il gatto Fuffi ha visto un uccellino sul balcone. \u00c8 saltato sulla sedia, ma l'uccellino \u00e8 volato via subito. Perch\u00e9 il gatto non ha preso l'uccellino?",
-                    "selected": "Skipped",
-                    "correct": "Perch\u00e9 l'uccellino \u00e8 volato via",
-                    "explanation": "L'uccellino \u00e8 volato via subito, quindi il gatto non \u00e8 riuscito a prenderlo."
-                },
-                {
-                    "question": "Paolo ha cercato le sue chiavi per un'ora. Alla fine le ___ trovate sotto il divano. Scrivi il verbo ausiliare mancante.",
-                    "selected": "Skipped",
-                    "correct": "ha",
-                    "explanation": "Per completare 'Paolo le ha trovate', serve l'ausiliare 'ha'."
-                }
-            ]
-        },
-        {
-            "date": "2026-09-10 02:35 PM",
+            "date": "2026-09-14 06:48 AM",
             "topic": "Italian",
             "difficulty": "1 - Easy",
             "score": 5,
             "total": 10,
             "mistakes": [
                 {
-                    "question": "Completa la frase con la parola corretta: Il mio _____ abbaia in giardino e fa 'bau bau'.",
-                    "selected": "Skipped",
-                    "correct": "cane",
-                    "explanation": "L'animale domestico che abbaia e fa 'bau bau' \u00e8 il cane!"
+                    "question": "Sulla cattedra della maestra ci sono due matite _____ per correggere i compiti. Completa con il colore 'rosso' al femminile plurale.",
+                    "selected": "rossi",
+                    "correct": "rosse",
+                    "explanation": "La parola 'matite' \u00e8 femminile plurale, quindi l'aggettivo 'rosso' diventa 'rosse'."
                 },
                 {
-                    "question": "Scegli l'articolo corretto: _____ cane di Luca corre molto veloce nel parco.",
-                    "selected": "Skipped",
-                    "correct": "Il",
-                    "explanation": "'Cane' \u00e8 un nome maschile singolare, quindi usiamo l'articolo 'Il'."
+                    "question": "Dopo la lezione di motoria, Leonardo dice al maestro: \"Io _____ molta sete, posso bere un sorso d'acqua?\". Completa con la forma giusta del verbo avere.",
+                    "selected": "sono",
+                    "correct": "ho",
+                    "explanation": "Per esprimere un bisogno usando 'io', usiamo la prima persona del verbo avere: 'ho'."
                 },
                 {
-                    "question": "Completa la risposta: \u2014 Ciao! Come ti chiami? \u2014 Ciao, io _____ Matteo.",
-                    "selected": "Skipped",
-                    "correct": "sono",
-                    "explanation": "Per presentarsi si dice 'Io sono Matteo' oppure 'Mi chiamo Matteo'."
+                    "question": "Durante la ricreazione, io e il mio amico Sara _____ a nascondino nel cortile. Completa con il verbo 'giocare' per 'noi'.",
+                    "selected": "giochano",
+                    "correct": "giochiamo",
+                    "explanation": "Per il soggetto 'io e il mio amico' (noi), la forma corretta del verbo giocare \u00e8 'giochiamo'."
                 },
                 {
-                    "question": "Come rispondi a un amico che ti chiede: 'Come stai, Giulia?'",
-                    "selected": "Skipped",
-                    "correct": "Sto bene, grazie!",
-                    "explanation": "Alla domanda 'Come stai?' si risponde esprimendo come ci si sente, come 'Sto bene, grazie!'."
+                    "question": "Per chiedere ad un nuovo compagno da dove viene, la domanda giusta \u00e8: \"Di dove _____?\"",
+                    "selected": "siete",
+                    "correct": "sei",
+                    "explanation": "Quando chiedi la provenienza a qualcuno della tua et\u00e0, usi la seconda persona del verbo essere: 'sei'."
                 },
                 {
-                    "question": "Conta i gatti nel giardino: uno, due, _____! Quanti gatti ci sono in totale?",
-                    "selected": "Skipped",
-                    "correct": "tre",
-                    "explanation": "Dopo il numero due viene il numero tre."
+                    "question": "Tutti i giorni, io e i miei compagni di classe _____ una mela per merenda. Completa con il verbo 'mangiare' per 'noi'.",
+                    "selected": "mangiano",
+                    "correct": "mangiamo",
+                    "explanation": "Con il soggetto 'io e i miei compagni' (noi), usiamo la forma del verbo 'mangiamo'."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-14 06:54 AM",
+            "topic": "Fractions",
+            "difficulty": "1 - Easy",
+            "score": 7,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "What does the bottom number (denominator) of a fraction tell us? (Hint: Imagine drawing a rectangle and splitting it into equal parts!)",
+                    "selected": "The big number",
+                    "correct": "The total number of equal parts",
+                    "explanation": "Spot on! The bottom number, called the denominator, shows how many equal parts the whole shape is split into."
+                },
+                {
+                    "question": "Which fraction shows one quarter? (Hint: Try drawing a square divided into 4 equal mini-squares and colour 1 in!)",
+                    "selected": "3/4",
+                    "correct": "1/4",
+                    "explanation": "Awesome! One quarter means 1 part out of 4 equal parts, which is written as 1/4."
+                },
+                {
+                    "question": "Which of these fractions is equal to one half (1/2)? (Hint: Draw a bar split into 4 parts and shade 2 parts, then compare it to a bar split in half!)",
+                    "selected": "3/4",
+                    "correct": "2/4",
+                    "explanation": "Super work! 2 out of 4 parts (2/4) takes up the exact same amount of space as 1 out of 2 parts (1/2)."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-14 06:55 AM",
+            "topic": "Fractions",
+            "difficulty": "1 - Easy",
+            "score": 8,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "Which fraction shows one quarter? (Hint: Try drawing a square divided into 4 equal mini-squares and colour 1 in!)",
+                    "selected": "3/4",
+                    "correct": "1/4",
+                    "explanation": "Awesome! One quarter means 1 part out of 4 equal parts, which is written as 1/4."
+                },
+                {
+                    "question": "Which of these fractions is equal to one half (1/2)? (Hint: Draw a bar split into 4 parts and shade 2 parts, then compare it to a bar split in half!)",
+                    "selected": "3/4",
+                    "correct": "2/4",
+                    "explanation": "Super work! 2 out of 4 parts (2/4) takes up the exact same amount of space as 1 out of 2 parts (1/2)."
                 }
             ]
         }

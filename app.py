@@ -1,3 +1,4 @@
+import pandas as pd
 import os
 import re
 import io
@@ -580,6 +581,35 @@ with tab2:
         st.info("No summary data available yet.")
         
     st.divider()
+    st.subheader("📈 Progress Over Time")
+    
+    # 1. Let the parent pick which subject to graph
+    chart_subject = st.selectbox("Select subject to view progress:", ALLOWED_SUBJECTS)
+    
+    # 2. Extract data for the chosen subject
+    chart_data = []
+    for log in profile_data["history"]:
+        if log.get("topic") == chart_subject and log.get("total", 0) > 0:
+            accuracy = (log["score"] / log["total"]) * 100
+            chart_data.append({
+                "Date": log["date"],
+                "Difficulty": log.get("difficulty", "Unknown Level"),
+                "Score (%)": accuracy
+            })
+            
+    # 3. Create the chart if we have data
+    if chart_data:
+        df = pd.DataFrame(chart_data)
+        
+        # Streamlit automatically plots different colored lines for each 'Difficulty'
+        st.line_chart(
+            df,
+            x="Date",
+            y="Score (%)",
+            color="Difficulty"
+        )
+    else:
+        st.info(f"No quiz history yet for {chart_subject}.")
     
     st.subheader("Recent Activity Log")
     # Filter history logs to only show allowed subjects
