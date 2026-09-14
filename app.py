@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta
 import pandas as pd
 import os
 import re
@@ -276,6 +277,34 @@ ALLOWED_SUBJECTS = [
     "Italian"
 ]
 
+def calculate_streak(history) -> int:
+    if not history:
+        return 0
+        
+    # Grab all unique dates from the history and sort them from newest to oldest
+    try:
+        dates = sorted(list(set(datetime.strptime(log["date"], "%Y-%m-%d %I:%M %p").date() for log in history)), reverse=True)
+    except Exception:
+        return 0 # Failsafe if date formats are weird
+        
+    if not dates:
+        return 0
+
+    today = datetime.now().date()
+    
+    # If his last quiz wasn't today or yesterday, the streak is broken (0)
+    if dates[0] != today and dates[0] != today - timedelta(days=1):
+        return 0
+        
+    streak = 1
+    # Count backwards to see how many consecutive days he studied
+    for i in range(len(dates) - 1):
+        if (dates[i] - dates[i+1]).days == 1:
+            streak += 1
+        else:
+            break
+    return streak
+
 # --- CREATE TABS ---
 tab1, tab2 = st.tabs(["🎓 Leonardo's Zone", "📊 Parent Dashboard"])
 
@@ -283,7 +312,20 @@ tab1, tab2 = st.tabs(["🎓 Leonardo's Zone", "📊 Parent Dashboard"])
 # TAB 1: THE STUDENT ZONE
 # ==========================================
 with tab1:
-    st.header("Welcome back, Leonardo! 🚀")
+    # 1. Calculate the streak
+    current_streak = calculate_streak(profile_data.get("history", []))
+    
+    # 2. Display it next to his name
+    if current_streak > 0:
+        st.header(f"Welcome back, Leonardo! 🚀 | 🔥 {current_streak} Day Streak!")
+    else:
+        st.header("Welcome back, Leonardo! 🚀")
+        
+    # 3. The Milestone Animation (Triggers a pop-up toast every 3 days)
+    # Using session_state so it only pops up once per visit, not every time he clicks a button
+    if current_streak > 0 and current_streak % 3 == 0 and "streak_celebrated" not in st.session_state:
+        st.toast(f"Whoa! A {current_streak}-day streak! The Wizard is taking notes!", icon="🔥")
+        st.session_state.streak_celebrated = True   
     
     col1, col2 = st.columns(2)
     with col1:
