@@ -263,6 +263,8 @@ if "quiz_difficulty" not in st.session_state:
     st.session_state.quiz_difficulty = ""
 if "quiz_id" not in st.session_state:
     st.session_state.quiz_id = str(uuid.uuid4())
+if "submitted_quiz_id" not in st.session_state:
+    st.session_state.submitted_quiz_id = None
 
 # Official list of active subjects
 ALLOWED_SUBJECTS = [
@@ -431,6 +433,14 @@ with tab1:
             st.write("---")
             
         if st.button("Submit Answers"):
+            # 1. Check if it's already graded
+            if st.session_state.submitted_quiz_id == st.session_state.quiz_id:
+                st.warning("Sneaky! You have already submitted this quiz. The Wizard says you must generate a new one! 🧙‍♂️")
+                st.stop()  # 🛑 HALTS THE SCRIPT RIGHT HERE!
+                
+            # 2. If it makes it past the stop sign, lock it in!
+            st.session_state.submitted_quiz_id = st.session_state.quiz_id
+
             score = 0
             total_questions = len(st.session_state.quiz_data)
             incorrect_summary = [] 
