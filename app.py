@@ -23,8 +23,8 @@ def escape_dollars(text) -> str:
     """Escapes unescaped dollar signs so Streamlit does not render text between them as LaTeX math."""
     if text is None:
         return ""
-    # Bypass escaping for Maths ICAS so LaTeX equations can render correctly
-    if st.session_state.get("quiz_subject") == "Maths ICAS Revision":
+    # Bypass escaping for Maths subjects so LaTeX equations can render correctly
+    if st.session_state.get("quiz_subject") in ["Maths ICAS Revision", "Fractions", "Multiplication and Division"]:
         return str(text)
     return re.sub(r'(?<!\\)\$', r'\\$', str(text))
 
@@ -468,7 +468,7 @@ with tab1:
             
             # 👇 --- START OF NEW CODE: Draw the picture if there is one --- 👇
             q_type = q.get("question_type", "standard")
-            visual_code = q.get("visual_code", "").strip()
+            visual_code = (q.get("visual_code") or "").strip()
 
             if (q_type == "visual_svg" or q_type == "visual_html") and visual_code:
                 components.html(
