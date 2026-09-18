@@ -416,14 +416,15 @@ with tab1:
                     subject_rules = """
                 SPECIAL RULES FOR FRACTIONS:
                 - Do NOT use confusing emojis to represent fractions. 
-                - Instead, embed helpful drawing hints directly into the question or explanation (e.g., "Hint: Try drawing a shape or a bar on paper to help you solve this!").
+                - Generate visual SVG questions to help him understand fractions! Use shapes (like circles, rectangles, or chocolate bars) with some parts shaded, or fraction number lines.
+                - When generating a visual question, set "question_type" to "visual_svg" and provide valid, standalone <svg> markup in "visual_code" (width="220" height="180").
                 """
                     if difficulty == "1 - Easy":
-                        subject_rules += "- Include a drawing prompt or hint in almost every question, helping him visualize shapes, chocolate bars, or groups of objects."
+                        subject_rules += "- Almost every question should be a visual_svg showing shapes or groups of objects with clear shaded parts."
                     elif difficulty == "2 - Medium":
-                        subject_rules += "- Mix standard word problems with occasional drawing hints."
+                        subject_rules += "- Mix standard word problems with visual_svg diagrams."
                     elif difficulty == "3 - Hard":
-                        subject_rules += "- Focus on abstract numerical fractions and complex multi-step word problems without drawing hints."
+                        subject_rules += "- Focus on abstract numerical fractions and complex multi-step word problems (mostly 'standard' text)."
 
                 # --- PROMPT ---
                 prompt = f"""
@@ -439,7 +440,9 @@ with tab1:
 
                 Return the result strictly as a JSON list where each item has:
                 - "type": strictly either "multiple_choice" or "free_text"
-                - "question": The text of the question
+                - "question_type": "visual_svg", "visual_html", or "standard"
+                - "question": The text of the question (use LaTeX like $\\\\frac{{1}}{{2}}$ where appropriate. Escape currency as \\\\$5)
+                - "visual_code": "Raw SVG string or HTML markup IF question_type is visual_svg or visual_html, else empty string ''"
                 - "options": A list of 4 multiple-choice options (leave as an empty list [] if type is free_text)
                 - "correct_answer": The exact correct answer. If free_text, provide the exact word or phrase they should type.
                 - "explanation": A brief, encouraging explanation of the answer
