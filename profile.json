@@ -5,8 +5,8 @@
             "total_correct": 12
         },
         "Maths ICAS Prep": {
-            "total_questions": 20,
-            "total_correct": 17
+            "total_questions": 40,
+            "total_correct": 36
         },
         "Fractions": {
             "total_questions": 50,
@@ -238,6 +238,29 @@
                     "explanation": "Awesome job! Keep the bottom number the same and subtract the top numbers: 6 - 2 = 4, giving 4/7."
                 }
             ]
+        },
+        {
+            "date": "2026-09-15 06:26 AM",
+            "topic": "Maths ICAS Prep",
+            "difficulty": "1 - Easy",
+            "score": 9,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "Ben read 5 pages on Monday, 3 pages on Tuesday, and 4 pages on Wednesday. How many pages did Ben read altogether?",
+                    "selected": "13",
+                    "correct": "12",
+                    "explanation": "Add the pages read each day: 5 + 3 = 8, and 8 + 4 = 12 total pages."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-15 06:30 AM",
+            "topic": "Maths ICAS Prep",
+            "difficulty": "1 - Easy",
+            "score": 10,
+            "total": 10,
+            "mistakes": []
         }
     ]
 }

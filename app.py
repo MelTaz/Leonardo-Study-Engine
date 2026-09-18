@@ -1,3 +1,4 @@
+from prompts import get_maths_icas_prompt
 from datetime import datetime, timedelta
 import pandas as pd
 import os
@@ -13,6 +14,7 @@ import urllib.request
 import urllib.error
 from datetime import datetime
 import streamlit as st
+import streamlit.components.v1 as components
 from dotenv import load_dotenv
 from google import genai
 from google.genai import types
@@ -21,6 +23,9 @@ def escape_dollars(text) -> str:
     """Escapes unescaped dollar signs so Streamlit does not render text between them as LaTeX math."""
     if text is None:
         return ""
+    # Bypass escaping for Maths ICAS so LaTeX equations can render correctly
+    if st.session_state.get("quiz_subject") == "Maths ICAS Revision":
+        return str(text)
     return re.sub(r'(?<!\\)\$', r'\\$', str(text))
 
 def strip_accents(text: str) -> str:
@@ -269,7 +274,7 @@ if "submitted_quiz_id" not in st.session_state:
 
 # Official list of active subjects
 ALLOWED_SUBJECTS = [
-    "Maths ICAS Prep",
+    "Maths ICAS Revision",
     "Fractions",
     "Proofreading (Grammar and Punctuation)",
     "Spelling",
@@ -385,57 +390,60 @@ with tab1:
                     history_context += f"\nHe has a clean slate for '{difficulty}' level! Test his baseline knowledge."
 
             # --- SUBJECT-SPECIFIC RULES ---
-            subject_rules = ""
-            if subject_focus == "Italian":
-                subject_rules = """
-            SPECIAL RULES FOR ITALIAN (BILINGUAL SCHOOL STUDENT):
-            - Leonardo attends an Italian bilingual school. Do NOT treat him as an absolute beginner; NEVER test isolated single-word flashcards (e.g., do NOT ask 'What is dog in Italian?').
-            - NEVER include English translations in brackets next to Italian words in questions or options. Use Italian context or natural scenario prompts.
-            - If difficulty is '1 - Easy' (Solid A1 Conversational & Everyday Language):
-              * Realistic dialogues and conversational exchanges (e.g., greetings, how to introduce someone, asking personal questions like 'Di dove sei?' or 'Quanti anni hai?').
-              * Everyday situational responses (e.g., expressing needs like 'ho fame' / 'ho sete', asking permission like 'Posso...?').
-              * Core verbs in sentence context (essere, avere, high-frequency regular verbs), and gender/plural agreements for articles and adjectives.
-            - If difficulty is '2 - Medium' (Upper A1 / Early A2 - Sentences & Routines):
-              * Expressing preferences with explanations ('Ti piace...?' / 'Sì, mi piace... perché...').
-              * Daily routines, telling time, school activities, and prepositions (a, in, da, con, per).
-              * Question words (Chi, Che cosa, Dove, Quando, Perché, Come) and logical sentence completion.
-            - If difficulty is '3 - Hard' (Solid A2 - Mini-Stories & Reading Comprehension):
-              * Present a short 2–3 sentence mini-story or scenario in Italian, followed by a comprehension question in Italian (e.g., 'Dove va Giulia dopo la scuola?').
-              * Conjunctions (mentre, ma, perché, quindi) and common past tense (passato prossimo with essere/avere, e.g., 'ho mangiato', 'è andato').
-            - For any 'free_text' questions, ensure the expected correct_answer is concise (1 to 3 words, such as 'è', 'perché', 'al parco', 'ho finito') so a Year 3 student can type it easily.
-            """
-            elif subject_focus == "Fractions":
-                subject_rules = """
-            SPECIAL RULES FOR FRACTIONS:
-            - Do NOT use confusing emojis to represent fractions. 
-            - Instead, embed helpful drawing hints directly into the question or explanation (e.g., "Hint: Try drawing a shape or a bar on paper to help you solve this!").
-            """
-                if difficulty == "1 - Easy":
-                    subject_rules += "- Include a drawing prompt or hint in almost every question, helping him visualize shapes, chocolate bars, or groups of objects."
-                elif difficulty == "2 - Medium":
-                    subject_rules += "- Mix standard word problems with occasional drawing hints."
-                elif difficulty == "3 - Hard":
-                    subject_rules += "- Focus on abstract numerical fractions and complex multi-step word problems without drawing hints."
+            if subject_focus == "Maths ICAS Revision":
+                prompt = get_maths_icas_prompt(difficulty, history_context)
+            else:
+                subject_rules = ""
+                if subject_focus == "Italian":
+                    subject_rules = """
+                SPECIAL RULES FOR ITALIAN (BILINGUAL SCHOOL STUDENT):
+                - Leonardo attends an Italian bilingual school. Do NOT treat him as an absolute beginner; NEVER test isolated single-word flashcards (e.g., do NOT ask 'What is dog in Italian?').
+                - NEVER include English translations in brackets next to Italian words in questions or options. Use Italian context or natural scenario prompts.
+                - If difficulty is '1 - Easy' (Solid A1 Conversational & Everyday Language):
+                  * Realistic dialogues and conversational exchanges (e.g., greetings, how to introduce someone, asking personal questions like 'Di dove sei?' or 'Quanti anni hai?').
+                  * Everyday situational responses (e.g., expressing needs like 'ho fame' / 'ho sete', asking permission like 'Posso...?').
+                  * Core verbs in sentence context (essere, avere, high-frequency regular verbs), and gender/plural agreements for articles and adjectives.
+                - If difficulty is '2 - Medium' (Upper A1 / Early A2 - Sentences & Routines):
+                  * Expressing preferences with explanations ('Ti piace...?' / 'Sì, mi piace... perché...').
+                  * Daily routines, telling time, school activities, and prepositions (a, in, da, con, per).
+                  * Question words (Chi, Che cosa, Dove, Quando, Perché, Come) and logical sentence completion.
+                - If difficulty is '3 - Hard' (Solid A2 - Mini-Stories & Reading Comprehension):
+                  * Present a short 2–3 sentence mini-story or scenario in Italian, followed by a comprehension question in Italian (e.g., 'Dove va Giulia dopo la scuola?').
+                  * Conjunctions (mentre, ma, perché, quindi) and common past tense (passato prossimo with essere/avere, e.g., 'ho mangiato', 'è andato').
+                - For any 'free_text' questions, ensure the expected correct_answer is concise (1 to 3 words, such as 'è', 'perché', 'al parco', 'ho finito') so a Year 3 student can type it easily.
+                """
+                elif subject_focus == "Fractions":
+                    subject_rules = """
+                SPECIAL RULES FOR FRACTIONS:
+                - Do NOT use confusing emojis to represent fractions. 
+                - Instead, embed helpful drawing hints directly into the question or explanation (e.g., "Hint: Try drawing a shape or a bar on paper to help you solve this!").
+                """
+                    if difficulty == "1 - Easy":
+                        subject_rules += "- Include a drawing prompt or hint in almost every question, helping him visualize shapes, chocolate bars, or groups of objects."
+                    elif difficulty == "2 - Medium":
+                        subject_rules += "- Mix standard word problems with occasional drawing hints."
+                    elif difficulty == "3 - Hard":
+                        subject_rules += "- Focus on abstract numerical fractions and complex multi-step word problems without drawing hints."
 
-            # --- PROMPT ---
-            prompt = f"""
-            Generate 10 practice questions for a Year 3 student. 
-            Topic: {subject_focus}
-            Difficulty Level: {difficulty}
-            {history_context}
-            {subject_rules}
+                # --- PROMPT ---
+                prompt = f"""
+                Generate 10 practice questions for a Year 3 student. 
+                Topic: {subject_focus}
+                Difficulty Level: {difficulty}
+                {history_context}
+                {subject_rules}
 
-            IMPORTANT FORMATTING RULE:
-            If the Topic is 'Spelling' or 'Italian', please generate a mix of 'multiple_choice' and 'free_text' questions. 
-            For all other topics, generate ONLY 'multiple_choice' questions.
+                IMPORTANT FORMATTING RULE:
+                If the Topic is 'Spelling' or 'Italian', please generate a mix of 'multiple_choice' and 'free_text' questions. 
+                For all other topics, generate ONLY 'multiple_choice' questions.
 
-            Return the result strictly as a JSON list where each item has:
-            - "type": strictly either "multiple_choice" or "free_text"
-            - "question": The text of the question
-            - "options": A list of 4 multiple-choice options (leave as an empty list [] if type is free_text)
-            - "correct_answer": The exact correct answer. If free_text, provide the exact word or phrase they should type.
-            - "explanation": A brief, encouraging explanation of the answer
-            """
+                Return the result strictly as a JSON list where each item has:
+                - "type": strictly either "multiple_choice" or "free_text"
+                - "question": The text of the question
+                - "options": A list of 4 multiple-choice options (leave as an empty list [] if type is free_text)
+                - "correct_answer": The exact correct answer. If free_text, provide the exact word or phrase they should type.
+                - "explanation": A brief, encouraging explanation of the answer
+                """
             
             response = client.models.generate_content(
                 model='gemini-3.6-flash',
@@ -449,7 +457,7 @@ with tab1:
             st.session_state.quiz_subject = subject_focus
             st.session_state.quiz_difficulty = difficulty 
 
-    # Display the Interactive Quiz
+# Display the Interactive Quiz
     if st.session_state.quiz_data:
         st.divider()
         st.subheader(f"📝 Practice Quiz: {st.session_state.quiz_subject} ({st.session_state.quiz_difficulty})")
@@ -457,6 +465,17 @@ with tab1:
         user_answers = {}
         for i, q in enumerate(st.session_state.quiz_data):
             st.write(f"**Question {i+1}:** {escape_dollars(q['question'])}")
+            
+            # 👇 --- START OF NEW CODE: Draw the picture if there is one --- 👇
+            q_type = q.get("question_type", "standard")
+            visual_code = q.get("visual_code", "").strip()
+
+            if (q_type == "visual_svg" or q_type == "visual_html") and visual_code:
+                components.html(
+                    f"<div style='display:flex;justify-content:center;'>{visual_code}</div>",
+                    height=200,
+                )
+            # 👆 --- END OF NEW CODE --- 👆
             
             unique_key = f"q_{st.session_state.quiz_id}_{i}"
             
