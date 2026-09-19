@@ -485,7 +485,7 @@ with tab1:
         
         user_answers = {}
         for i, q in enumerate(st.session_state.quiz_data):
-            st.write(f"**Question {i+1}:** {escape_dollars(q['question'])}")
+            st.write(f"**Question {i+1}:** {escape_dollars(q['question']).replace('<br>', '  \n')}")
             
             # 👇 --- START OF NEW CODE: Draw the picture if there is one --- 👇
             q_type = q.get("question_type", "standard")
