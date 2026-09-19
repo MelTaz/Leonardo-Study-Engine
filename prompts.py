@@ -6,6 +6,9 @@ Generate 10 multiple-choice math revision questions targeted at building mastery
 Difficulty Level: {difficulty}
 {history_context}
 
+GLOBAL RULES:
+- Use the metric system ONLY (e.g., kilometres, metres, kilograms, grams, Celsius, litres). Do NOT use miles, feet, pounds, or Fahrenheit.
+
 Target ICAS Skill Gap Categories:
 - Space & Geometry: Identify 2D shapes in tessellations, reflected images, 2D shapes from symmetry diagrams, shapes that are half a rectangle, 3D shape edges/vertices, movement/turns (forward, up, down, quarter-turns).
 - Measures & Units: Calendar dates, informal units for shape area, counting identical prisms in a box, perimeter on a grid.

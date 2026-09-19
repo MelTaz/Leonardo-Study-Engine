@@ -418,6 +418,7 @@ with tab1:
                 - Do NOT use confusing emojis to represent fractions. 
                 - Generate visual SVG questions to help him understand fractions! Use shapes (like circles, rectangles, or chocolate bars) with some parts shaded, or fraction number lines.
                 - When generating a visual question, set "question_type" to "visual_svg" and provide valid, standalone <svg> markup in "visual_code" (width="220" height="180").
+                - NEVER use LaTeX or math formatting (like $\frac{1}{2}$ or \(\)) inside visual_code HTML/SVG. If you must label a chart inside the diagram, use standard keyboard text like "2/6".
                 """
                     if difficulty == "1 - Easy":
                         subject_rules += "- Almost every question should be a visual_svg showing shapes or groups of objects with clear shaded parts."
@@ -426,6 +427,9 @@ with tab1:
                     elif difficulty == "3 - Hard":
                         subject_rules += "- Focus on abstract numerical fractions and complex multi-step word problems (mostly 'standard' text)."
 
+                # --- GLOBAL RULES ---
+                global_rules = "- Use the metric system ONLY (kilometres, metres, kilograms, grams, Celsius, litres). Do NOT use miles, feet, pounds, or Fahrenheit."
+
                 # --- PROMPT ---
                 prompt = f"""
                 Generate 10 practice questions for a Year 3 student. 
@@ -433,6 +437,7 @@ with tab1:
                 Difficulty Level: {difficulty}
                 {history_context}
                 {subject_rules}
+                {global_rules}
 
                 IMPORTANT FORMATTING RULE:
                 If the Topic is 'Spelling' or 'Italian', please generate a mix of 'multiple_choice' and 'free_text' questions. 
@@ -448,13 +453,26 @@ with tab1:
                 - "explanation": A brief, encouraging explanation of the answer
                 """
             
-            response = client.models.generate_content(
-                model='gemini-3.6-flash',
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    response_mime_type="application/json",
+            # --- GENERATE QUIZ WITH AUTOMATIC FALLBACK ---
+            try:
+                # Primary attempt
+                response = client.models.generate_content(
+                    model='gemini-3.6-flash',
+                    contents=prompt,
+                    config=types.GenerateContentConfig(
+                        response_mime_type="application/json",
+                    )
                 )
-            )
+            except Exception as e:
+                # Backup attempt if a 503 Server Error occurs
+                st.toast("⚠️ Server busy, using backup channel...", icon="🔄")
+                response = client.models.generate_content(
+                    model='gemini-3.5-flash',
+                    contents=prompt,
+                    config=types.GenerateContentConfig(
+                        response_mime_type="application/json",
+                    )
+                )
             
             st.session_state.quiz_data = json.loads(response.text)
             st.session_state.quiz_subject = subject_focus

@@ -9,8 +9,12 @@
             "total_correct": 36
         },
         "Fractions": {
-            "total_questions": 50,
-            "total_correct": 37
+            "total_questions": 60,
+            "total_correct": 47
+        },
+        "Maths ICAS Revision": {
+            "total_questions": 10,
+            "total_correct": 9
         }
     },
     "history": [
@@ -258,6 +262,29 @@
             "date": "2026-09-15 06:30 AM",
             "topic": "Maths ICAS Prep",
             "difficulty": "1 - Easy",
+            "score": 10,
+            "total": 10,
+            "mistakes": []
+        },
+        {
+            "date": "2026-09-18 06:36 AM",
+            "topic": "Maths ICAS Revision",
+            "difficulty": "1 - Easy",
+            "score": 9,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "Each grid square is 1 unit by 1 unit. What is the perimeter of the shaded rectangle?",
+                    "selected": "C. 14 units",
+                    "correct": "D. 16 units",
+                    "explanation": "The rectangle is 5 units long and 3 units wide. Perimeter = top + bottom + left + right = $5 + 5 + 3 + 3 = 16$ units."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-18 06:46 AM",
+            "topic": "Fractions",
+            "difficulty": "2 - Medium",
             "score": 10,
             "total": 10,
             "mistakes": []
