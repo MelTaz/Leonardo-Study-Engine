@@ -1,3 +1,4 @@
+from api import generate_quiz_content
 from prompts import get_maths_icas_prompt
 from datetime import datetime, timedelta
 import pandas as pd
@@ -453,26 +454,8 @@ with tab1:
                 - "explanation": A brief, encouraging explanation of the answer
                 """
             
-            # --- GENERATE QUIZ WITH AUTOMATIC FALLBACK ---
-            try:
-                # Primary attempt
-                response = client.models.generate_content(
-                    model='gemini-3.6-flash',
-                    contents=prompt,
-                    config=types.GenerateContentConfig(
-                        response_mime_type="application/json",
-                    )
-                )
-            except Exception as e:
-                # Backup attempt if a 503 Server Error occurs
-                st.toast("⚠️ Server busy, using backup channel...", icon="🔄")
-                response = client.models.generate_content(
-                    model='gemini-3.5-flash',
-                    contents=prompt,
-                    config=types.GenerateContentConfig(
-                        response_mime_type="application/json",
-                    )
-                )
+            # --- GENERATE QUIZ ---
+            response = generate_quiz_content(client, prompt)
             
             st.session_state.quiz_data = json.loads(response.text)
             st.session_state.quiz_subject = subject_focus
