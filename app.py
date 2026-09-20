@@ -1,5 +1,5 @@
+from prompts import get_maths_icas_prompt, get_standard_prompt
 from api import generate_quiz_content
-from prompts import get_maths_icas_prompt
 from datetime import datetime, timedelta
 import pandas as pd
 import os
@@ -390,70 +390,12 @@ with tab1:
                 else:
                     history_context += f"\nHe has a clean slate for '{difficulty}' level! Test his baseline knowledge."
 
-            # --- SUBJECT-SPECIFIC RULES ---
-            if subject_focus == "Maths ICAS Revision":
-                prompt = get_maths_icas_prompt(difficulty, history_context)
-            else:
-                subject_rules = ""
-                if subject_focus == "Italian":
-                    subject_rules = """
-                SPECIAL RULES FOR ITALIAN (BILINGUAL SCHOOL STUDENT):
-                - Leonardo attends an Italian bilingual school. Do NOT treat him as an absolute beginner; NEVER test isolated single-word flashcards (e.g., do NOT ask 'What is dog in Italian?').
-                - NEVER include English translations in brackets next to Italian words in questions or options. Use Italian context or natural scenario prompts.
-                - If difficulty is '1 - Easy' (Solid A1 Conversational & Everyday Language):
-                  * Realistic dialogues and conversational exchanges (e.g., greetings, how to introduce someone, asking personal questions like 'Di dove sei?' or 'Quanti anni hai?').
-                  * Everyday situational responses (e.g., expressing needs like 'ho fame' / 'ho sete', asking permission like 'Posso...?').
-                  * Core verbs in sentence context (essere, avere, high-frequency regular verbs), and gender/plural agreements for articles and adjectives.
-                - If difficulty is '2 - Medium' (Upper A1 / Early A2 - Sentences & Routines):
-                  * Expressing preferences with explanations ('Ti piace...?' / 'Sì, mi piace... perché...').
-                  * Daily routines, telling time, school activities, and prepositions (a, in, da, con, per).
-                  * Question words (Chi, Che cosa, Dove, Quando, Perché, Come) and logical sentence completion.
-                - If difficulty is '3 - Hard' (Solid A2 - Mini-Stories & Reading Comprehension):
-                  * Present a short 2–3 sentence mini-story or scenario in Italian, followed by a comprehension question in Italian (e.g., 'Dove va Giulia dopo la scuola?').
-                  * Conjunctions (mentre, ma, perché, quindi) and common past tense (passato prossimo with essere/avere, e.g., 'ho mangiato', 'è andato').
-                - For any 'free_text' questions, ensure the expected correct_answer is concise (1 to 3 words, such as 'è', 'perché', 'al parco', 'ho finito') so a Year 3 student can type it easily.
-                """
-                elif subject_focus == "Fractions":
-                    subject_rules = """
-                SPECIAL RULES FOR FRACTIONS:
-                - Do NOT use confusing emojis to represent fractions. 
-                - Generate visual SVG questions to help him understand fractions! Use shapes (like circles, rectangles, or chocolate bars) with some parts shaded, or fraction number lines.
-                - When generating a visual question, set "question_type" to "visual_svg" and provide valid, standalone <svg> markup in "visual_code" (width="220" height="180").
-                - NEVER use LaTeX or math formatting (like $\frac{1}{2}$ or \(\)) inside visual_code HTML/SVG. If you must label a chart inside the diagram, use standard keyboard text like "2/6".
-                """
-                    if difficulty == "1 - Easy":
-                        subject_rules += "- Almost every question should be a visual_svg showing shapes or groups of objects with clear shaded parts."
-                    elif difficulty == "2 - Medium":
-                        subject_rules += "- Mix standard word problems with visual_svg diagrams."
-                    elif difficulty == "3 - Hard":
-                        subject_rules += "- Focus on abstract numerical fractions and complex multi-step word problems (mostly 'standard' text)."
-
-                # --- GLOBAL RULES ---
-                global_rules = "- Use the metric system ONLY (kilometres, metres, kilograms, grams, Celsius, litres). Do NOT use miles, feet, pounds, or Fahrenheit."
-
-                # --- PROMPT ---
-                prompt = f"""
-                Generate 10 practice questions for a Year 3 student. 
-                Topic: {subject_focus}
-                Difficulty Level: {difficulty}
-                {history_context}
-                {subject_rules}
-                {global_rules}
-
-                IMPORTANT FORMATTING RULE:
-                If the Topic is 'Spelling' or 'Italian', please generate a mix of 'multiple_choice' and 'free_text' questions. 
-                For all other topics, generate ONLY 'multiple_choice' questions.
-
-                Return the result strictly as a JSON list where each item has:
-                - "type": strictly either "multiple_choice" or "free_text"
-                - "question_type": "visual_svg", "visual_html", or "standard"
-                - "question": The text of the question (use LaTeX like $\\\\frac{{1}}{{2}}$ where appropriate. Escape currency as \\\\$5)
-                - "visual_code": "Raw SVG string or HTML markup IF question_type is visual_svg or visual_html, else empty string ''"
-                - "options": A list of 4 multiple-choice options (leave as an empty list [] if type is free_text)
-                - "correct_answer": The exact correct answer. If free_text, provide the exact word or phrase they should type.
-                - "explanation": A brief, encouraging explanation of the answer
-                """
-            
+            # --- BUILD PROMPT ---
+                if subject_focus == "Maths ICAS Revision":
+                    prompt = get_maths_icas_prompt(difficulty, history_context) + f"\n\nPlease generate exactly 10 questions. {history_context}"
+                else:
+                    prompt = get_standard_prompt(subject_focus, difficulty, history_context)
+           
             # --- GENERATE QUIZ ---
             response = generate_quiz_content(client, prompt)
             

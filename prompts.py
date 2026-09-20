@@ -32,3 +32,49 @@ IMPORTANT FOR VISUAL CODE:
 2. If question_type is 'visual_html', provide valid <table> HTML with inline CSS styling (e.g., calendar widgets, data tables).
 3. Ensure SVGs have width='220', height='180' and clean viewBox attributes.
 """
+
+def get_standard_prompt(subject_focus, difficulty, history_context):
+  """Generates the prompt for all standard subjects outside of ICAS."""
+  
+  # --- GLOBAL RULES ---
+  global_rules = "- Use the metric system ONLY (e.g., kilometres, metres, kilograms, grams, Celsius, litres). Do NOT use miles, feet, pounds, or Fahrenheit."
+
+  # --- SUBJECT-SPECIFIC RULES ---
+  subject_rules = ""
+  if subject_focus == "Italian":
+      subject_rules = """
+      SPECIAL RULES FOR ITALIAN (BILINGUAL SCHOOL STUDENT):
+      - Leonardo attends an Italian bilingual school. Do NOT treat him as an absolute beginner; NEVER test isolated single-word flashcards.
+      - NEVER include English translations in brackets next to Italian words in questions or options. Use Italian context or natural scenario prompts.
+      - If difficulty is '1 - Easy': Realistic dialogues and everyday situational responses.
+      - If difficulty is '2 - Medium': Expressing preferences, daily routines, telling time, and question words.
+      - If difficulty is '3 - Hard': Present a short 2–3 sentence mini-story followed by a comprehension question in Italian.
+      - For any 'free_text' questions, ensure the expected correct_answer is concise (1 to 3 words) so a Year 3 student can type it easily.
+      """
+  elif subject_focus == "Fractions":
+      subject_rules = """
+      SPECIAL RULES FOR FRACTIONS:
+      - Do NOT use confusing emojis to represent fractions. 
+      - Instead, embed helpful drawing hints directly into the question or explanation.
+      - NEVER use LaTeX or math formatting inside visual_code HTML/SVG.
+      """
+      if difficulty == "1 - Easy":
+          subject_rules += "\n- Include a drawing prompt or hint in almost every question, helping him visualize shapes."
+      elif difficulty == "2 - Medium":
+          subject_rules += "\n- Mix standard word problems with occasional drawing hints."
+      elif difficulty == "3 - Hard":
+          subject_rules += "\n- Focus on abstract numerical fractions and complex multi-step word problems without drawing hints."
+
+  # --- ASSEMBLE FINAL PROMPT ---
+  return f"""
+  Generate 10 practice questions for a Year 3 student. 
+  Topic: {subject_focus}
+  Difficulty Level: {difficulty}
+  
+  {history_context}
+  
+  {subject_rules}
+  
+  GLOBAL RULES:
+  {global_rules}
+  """

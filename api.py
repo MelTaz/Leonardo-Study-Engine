@@ -20,7 +20,7 @@ def generate_quiz_content(client, prompt: str):
         # Backup attempt using a modern supported model if a 503 Server Error occurs
         st.toast("⚠️ Server busy, using backup channel...", icon="🔄")
         response = client.models.generate_content(
-            model='gemini-3.5-flash',
+            model='gemini-3.5-flash-lite',
             contents=prompt,
             config=types.GenerateContentConfig(
                 response_mime_type="application/json",
