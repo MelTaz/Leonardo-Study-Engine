@@ -20,7 +20,7 @@ Return valid JSON ONLY as a list of 10 objects. Each object MUST have the follow
 {{
   "type": "multiple_choice",
   "question_type": "visual_svg" OR "visual_html" OR "standard",
-  "question": "The text of the question (use LaTeX like $\\\\frac{{1}}{{2}}$ where appropriate. If using currency, escape it like \\\\$5 so it doesn't break the math formatting!)",
+  "question": "The text of the question (use LaTeX like $\\\\frac{{1}}{{2}}$ where appropriate, and wrap ALL number sentences in single dollar signs like $6 \\\\times \\\\Box = 42$. NEVER use plain parentheses like ( ) or \\\\( \\\\) for math. If using currency, escape it like \\\\$5 so it doesn't break the formatting!)",
   "visual_code": "Raw SVG string or HTML table markup IF question_type is visual_svg or visual_html, else empty string ''",
   "options": ["A. ...", "B. ...", "C. ...", "D. ..."],
   "correct_answer": "Exact text of the correct option (e.g. 'A. ...')",
