@@ -9,12 +9,12 @@
             "total_correct": 36
         },
         "Fractions": {
-            "total_questions": 60,
-            "total_correct": 47
+            "total_questions": 70,
+            "total_correct": 56
         },
         "Maths ICAS Revision": {
-            "total_questions": 10,
-            "total_correct": 9
+            "total_questions": 30,
+            "total_correct": 19
         }
     },
     "history": [
@@ -288,6 +288,99 @@
             "score": 10,
             "total": 10,
             "mistakes": []
+        },
+        {
+            "date": "2026-09-20 07:12 AM",
+            "topic": "Maths ICAS Revision",
+            "difficulty": "1 - Easy",
+            "score": 9,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "Each grid square is $1\\text{ unit}$ by $1\\text{ unit}$. What is the perimeter of this shaded L-shape?",
+                    "selected": "B. $8\\text{ units}$",
+                    "correct": "C. $10\\text{ units}$",
+                    "explanation": "Count each outer grid segment around the shape: Top = $2\\text{ units}$, Right side upper = $1\\text{ unit}$, Inner step = $1\\text{ unit}$, Inner down = $1\\text{ unit}$, Bottom = $1\\text{ unit}$, Left side = $2\\text{ units}$, wait! Let's check: Top ($2$), Right ($1$), Inner left ($1$), Down ($1$), Bottom ($1$), Left ($2$). Sum = $2 + 1 + 1 + 1 + 1 + 2 = 8\\text{ units}$! Wait, let's recount: Top edge from x=65 to 125 is $2$ units. Right edge down to 75 is $1$ unit. Inner edge to 95 is $1$ unit. Inner edge down to 105 is $1$ unit. Bottom edge to 65 is $1$ unit. Left edge up to 45 is $2$ units. Total = $2 + 1 + 1 + 1 + 1 + 2 = 8\\text{ units}$."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-21 06:27 AM",
+            "topic": "Fractions",
+            "difficulty": "2 - Medium",
+            "score": 9,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "Which fraction is smaller: 1/4 or 1/8? (Hint: Imagine sharing a pizza equally among 4 people versus 8 people. Which slice is smaller?)",
+                    "selected": "They are equal",
+                    "correct": "1/8",
+                    "explanation": "When the numerator is 1, a larger denominator means the whole is divided into more pieces, making each piece smaller. Therefore, 1/8 is smaller than 1/4."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-21 09:23 PM",
+            "topic": "Maths ICAS Revision",
+            "difficulty": "3 - Hard",
+            "score": 1,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "A rectangular prism (box) has a length of $5\\text{ cm}$, a width of $3\\text{ cm}$, and a height of $4\\text{ cm}$. How many small identical cubes of side length $1\\text{ cm}$ are needed to completely fill this box without any gaps?",
+                    "selected": "Skipped",
+                    "correct": "C. $60$ cubes",
+                    "explanation": "To find the total number of $1\\text{ cm}$ cubes that fit inside the rectangular prism, you multiply its three dimensions together: $\\text{Volume} = \\text{length} \\times \\text{width} \\times \\text{height} = 5 \\times 3 \\times 4 = 60$ cubic centimetres. Therefore, $60$ cubes are needed."
+                },
+                {
+                    "question": "What is the perimeter of the shaded shape drawn on the $1\\text{ cm}$ square grid?",
+                    "selected": "Skipped",
+                    "correct": "B. $28\\text{ cm}$",
+                    "explanation": "Count the outer edge lengths on the $1\\text{ cm}$ grid: Top = $4$, Right = $3$, Inner horizontal = $2$, Inner vertical = $2$, Bottom = $4$, Left = $5$. Adding all outer boundary segments gives a total perimeter of $28\\text{ cm}$."
+                },
+                {
+                    "question": "Solve the missing value in the number sentence: $7 \\times (15 - 9) + \\Box = 65$",
+                    "selected": "Skipped",
+                    "correct": "B. $23$",
+                    "explanation": "Follow the order of operations (PEMDAS/BODMAS): First, calculate inside the parentheses: $15 - 9 = 6$. Next, multiply by $7$: $7 \\times 6 = 42$. The equation becomes $42 + \\Box = 65$. Subtract $42$ from $65$ to find $\\Box = 23$."
+                },
+                {
+                    "question": "Study the partial calendar for the month of October below. If today is Tuesday, October 14, what date will it be exactly $2$ weeks and $3$ days later?",
+                    "selected": "Skipped",
+                    "correct": "C. November 1",
+                    "explanation": "Two weeks equals $14$ days, which brings us to Tuesday, October 28. Adding 3 more days ($29$th, $30$th, $31$st) leads to Friday, October $31$, and one more day makes it Saturday, November 1."
+                },
+                {
+                    "question": "A water tank contains $1250\\text{ litres}$ of water. If $3\\text{ hectolitres}$ and $45\\text{ litres}$ are used for gardening, how many litres of water are left in the tank? (Note: $1\\text{ hectolitre} = 100\\text{ litres}$)",
+                    "selected": "Skipped",
+                    "correct": "A. $905\\text{ litres}$",
+                    "explanation": "First, convert $3\\text{ hectolitres}$ into litres: $3 \\times 100 = 300\\text{ litres}$. Add the remaining litres used: $300 + 45 = 345\\text{ litres}$ total used. Now subtract this from the initial amount: $1250 - 345 = 905\\text{ litres}$ left."
+                },
+                {
+                    "question": "A triangular prism has how many edges and vertices in total?",
+                    "selected": "Skipped",
+                    "correct": "B. $9$ edges and $6$ vertices",
+                    "explanation": "A triangular prism has $2$ triangular bases and $3$ rectangular faces. It has $3$ edges on the top triangle, $3$ edges on the bottom triangle, and $3$ connecting vertical edges, making $9$ edges in total. It has $3$ vertices on the top face and $3$ on the bottom face, making $6$ vertices in total."
+                },
+                {
+                    "question": "Which fraction is exactly halfway between $\\frac{1}{4}$ and $\\frac{3}{4}$?",
+                    "selected": "Skipped",
+                    "correct": "B. $\\frac{1}{2}$",
+                    "explanation": "To find the number halfway between two fractions, you can add them together and divide by $2$. $\\frac{1}{4} + \\frac{3}{4} = \\frac{4}{4} = 1$. Then, half of $1$ is $\\frac{1}{2}$ (or $\\frac{2}{4}$)."
+                },
+                {
+                    "question": "A robot is facing North. It performs the following movement sequence: Turns a quarter-turn clockwise, moves forward $4\\text{ metres}$, turns a half-turn (180 degrees), and moves forward $2\\text{ metres}$. What direction is the robot facing now?",
+                    "selected": "Skipped",
+                    "correct": "D. West",
+                    "explanation": "Starting facing North: 1) A quarter-turn clockwise makes it face East. 2) Moving forward keeps it facing East. 3) A half-turn (180 degrees) turns it around completely, making it face West. 4) Moving forward keeps it facing West."
+                },
+                {
+                    "question": "Study the growing number pattern represented by dot arrays below. How many dots will be in Figure 5?",
+                    "selected": "Skipped",
+                    "correct": "C. $15$",
+                    "explanation": "This sequence represents triangular numbers: Fig 1 = $1$, Fig 2 = $3$, Fig 3 = $6$, Fig 4 = $10$ ($6+4$), and Fig 5 = $15$ ($10+5$). Alternatively, use the formula $\\frac{n(n+1)}{2}$ for $n = 5$: $\\frac{5 \\times 6}{2} = 15$."
+                }
+            ]
         }
     ]
 }
