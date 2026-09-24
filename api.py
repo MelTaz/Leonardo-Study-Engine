@@ -1,29 +1,41 @@
 import streamlit as st
-from google.genai import types
 
 def generate_quiz_content(client, prompt: str):
     """
     Sends the generated prompt to Gemini and automatically falls back to a 
     supported alternative model if the primary server is experiencing high demand.
     """
+    quiz_schema = {
+        "type": "array",
+        "items": {
+            "type": "object",
+            "properties": {
+                "type": {"type": "string"},
+                "question_type": {"type": "string"},
+                "question": {"type": "string"},
+                "visual_code": {"type": "string"},
+                "options": {"type": "array", "items": {"type": "string"}},
+                "correct_answer": {"type": "string"},
+                "explanation": {"type": "string"}
+            },
+            "required": ["type", "question", "options", "correct_answer", "explanation"]
+        }
+    }
+
     try:
         # Primary attempt
-        response = client.models.generate_content(
-            model='gemini-3.6-flash',
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                response_mime_type="application/json",
-            )
+        interaction = client.interactions.create(
+            model='gemini-3.8-flash',
+            input=prompt,
+            response_format=quiz_schema
         )
-        return response
+        return interaction
     except Exception as e:
         # Backup attempt using a modern supported model if a 503 Server Error occurs
         st.toast("⚠️ Server busy, using backup channel...", icon="🔄")
-        response = client.models.generate_content(
+        interaction = client.interactions.create(
             model='gemini-3.5-flash-lite',
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                response_mime_type="application/json",
-            )
+            input=prompt,
+            response_format=quiz_schema
         )
-        return response
+        return interaction

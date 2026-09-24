@@ -392,15 +392,24 @@ with tab1:
                     history_context += f"\nHe has a clean slate for '{difficulty}' level! Test his baseline knowledge."
 
             # --- BUILD PROMPT ---
-                if subject_focus == "Maths ICAS Revision":
-                    prompt = get_maths_icas_prompt(difficulty, history_context) + f"\n\nPlease generate exactly 10 questions. {history_context}"
-                else:
-                    prompt = get_standard_prompt(subject_focus, difficulty, history_context)
+            if subject_focus == "Maths ICAS Revision":
+                prompt = get_maths_icas_prompt(difficulty, history_context) + f"\n\nPlease generate exactly 10 questions. {history_context}"
+            else:
+                prompt = get_standard_prompt(subject_focus, difficulty, history_context)
            
             # --- GENERATE QUIZ ---
             response = generate_quiz_content(client, prompt)
             
-            st.session_state.quiz_data = json.loads(response.text)
+            raw_text = (response.output_text or "").strip()
+            if raw_text.startswith("```"):
+                raw_text = raw_text.strip("` \n")
+                if raw_text.lower().startswith("json"):
+                    raw_text = raw_text[4:].strip()
+            
+            if not raw_text:
+                raise ValueError(f"AI returned an empty response. Interaction details: {response}")
+                
+            st.session_state.quiz_data = json.loads(raw_text)
             st.session_state.quiz_subject = subject_focus
             st.session_state.quiz_difficulty = difficulty 
 
@@ -460,15 +469,16 @@ with tab1:
             st.subheader("📊 Quiz Feedback")
             
             for i, q in enumerate(st.session_state.quiz_data):
-                clean_q = escape_dollars(q['question'])
-                clean_exp = escape_dollars(q['explanation'])
-                clean_correct = escape_dollars(q['correct_answer'])
+                clean_q = escape_dollars(q.get('question', 'Missing Question'))
+                clean_exp = escape_dollars(q.get('explanation', 'Great try!'))
+                correct_ans = q.get('correct_answer') or q.get('answer') or q.get('correct') or ''
+                clean_correct = escape_dollars(correct_ans)
                 
                 user_ans = user_answers[i]
                 is_free = (q.get('type') == 'free_text')
                 is_correct, is_accent_tip = check_answer(
                     user_ans=user_ans,
-                    correct_ans=q['correct_answer'],
+                    correct_ans=correct_ans,
                     is_free_text=is_free,
                     is_italian=is_italian
                 )

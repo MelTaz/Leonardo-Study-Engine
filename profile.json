@@ -15,6 +15,10 @@
         "Maths ICAS Revision": {
             "total_questions": 30,
             "total_correct": 19
+        },
+        "Spelling": {
+            "total_questions": 10,
+            "total_correct": 10
         }
     },
     "history": [
@@ -381,6 +385,14 @@
                     "explanation": "This sequence represents triangular numbers: Fig 1 = $1$, Fig 2 = $3$, Fig 3 = $6$, Fig 4 = $10$ ($6+4$), and Fig 5 = $15$ ($10+5$). Alternatively, use the formula $\\frac{n(n+1)}{2}$ for $n = 5$: $\\frac{5 \\times 6}{2} = 15$."
                 }
             ]
+        },
+        {
+            "date": "2026-09-24 06:05 PM",
+            "topic": "Spelling",
+            "difficulty": "2 - Medium",
+            "score": 10,
+            "total": 10,
+            "mistakes": []
         }
     ]
 }
