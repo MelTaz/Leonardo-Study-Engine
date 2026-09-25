@@ -11,7 +11,7 @@ GLOBAL RULES:
 
 Target ICAS Skill Gap Categories:
 - Space & Geometry: Identify 2D shapes in tessellations, reflected images, 2D shapes from symmetry diagrams, shapes that are half a rectangle, 3D shape edges/vertices, movement/turns (forward, up, down, quarter-turns).
-- Measures & Units: Calendar dates, informal units for shape area, counting identical prisms in a box, perimeter on a grid.
+- Measures & Units: Calendar dates, informal units for shape area, counting identical prisms in a box, perimeter word problems.
 - Number & Arithmetic: 2-digit numbers in range, addition/subtraction with grouping, fractions and comparing amounts, multiplication/division, equal-sized and half-sized sections.
 - Algebra & Patterns & Chance: Continuing shape/number patterns, number sentences, completing data tables with clues.
 
@@ -28,7 +28,8 @@ Return valid JSON ONLY as a list of 10 objects. Each object MUST have the follow
 }}
 
 IMPORTANT FOR VISUAL CODE:
-1. If question_type is 'visual_svg', provide valid, standalone <svg> markup. For perimeter or area questions, you MUST explicitly draw visible grid lines using a <pattern> and <path> so the student can physically count the squares.
+1. If question_type is 'visual_svg', provide valid, standalone <svg> markup. For area questions, you MUST explicitly draw visible grid lines using a <pattern> and <path> so the student can physically count the squares.
+2. DO NOT generate visual_svg diagrams for perimeter questions (AI polygon perimeter math is often inaccurate). If testing perimeter, strictly use 'standard' text questions where Leonardo draws his own shape (e.g. "Draw a rectangle on your scratch paper where the length is...").
 2. If question_type is 'visual_html', provide valid <table> HTML with inline CSS styling (e.g., calendar widgets, data tables).
 3. Ensure SVGs have width='300', height='250' and clean viewBox attributes so that shapes and long text labels are never cropped.
 4. If your visual includes labeled shapes (A, B, C, D), the text in your "options" array MUST perfectly describe the exact shapes you coded in the SVG. Do not list a shape in the options if you did not draw it.
