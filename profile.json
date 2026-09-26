@@ -1,0 +1,442 @@
+{
+    "summary": {
+        "Italian": {
+            "total_questions": 20,
+            "total_correct": 12
+        },
+        "Maths ICAS Prep": {
+            "total_questions": 40,
+            "total_correct": 36
+        },
+        "Fractions": {
+            "total_questions": 70,
+            "total_correct": 56
+        },
+        "Maths ICAS Revision": {
+            "total_questions": 40,
+            "total_correct": 27
+        },
+        "Spelling": {
+            "total_questions": 30,
+            "total_correct": 29
+        }
+    },
+    "history": [
+        {
+            "date": "2026-09-12 07:30 AM",
+            "topic": "Italian",
+            "difficulty": "1 - Easy",
+            "score": 7,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "Matteo vuole sapere l'et\u00e0 di Sofia e le chiede: \"Quanti anni _____?\" Completa con la parola giusta.",
+                    "selected": "ha",
+                    "correct": "hai",
+                    "explanation": "Fantastic! To ask someone's age, we use 'tu hai': 'Quanti anni hai?'."
+                },
+                {
+                    "question": "Nel cestino della frutta ci sono due mele molto ____.",
+                    "selected": "rosso",
+                    "correct": "rosse",
+                    "explanation": "Bravo! 'Mele' is feminine plural, so the adjective must also end in '-e' ('rosse')."
+                },
+                {
+                    "question": "Ogni pomeriggio, io e il mio amico _____ a pallone nel cortile della scuola. (Completa con il verbo 'giocare' per 'noi').",
+                    "selected": "giocare",
+                    "correct": "giochiamo",
+                    "explanation": "Awesome effort! For 'noi' (io e il mio amico), the present tense of 'giocare' is 'giochiamo'."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-12 05:58 PM",
+            "topic": "Maths ICAS Prep",
+            "difficulty": "1 - Easy",
+            "score": 9,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "Leo has 4 red toy cars, 2 blue toy cars, and 5 green toy cars. How many toy cars does he have in total?",
+                    "selected": "12",
+                    "correct": "11",
+                    "explanation": "Great thinking! Add all the cars together: 4 + 2 + 5 = 11 cars."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-12 06:05 PM",
+            "topic": "Maths ICAS Prep",
+            "difficulty": "1 - Easy",
+            "score": 8,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "Sam scored 4 points in game one, 5 points in game two, and 3 points in game three. How many total points did Sam score?",
+                    "selected": "13",
+                    "correct": "12",
+                    "explanation": "Add all the scores together: 4 + 5 + 3 = 12 points!"
+                },
+                {
+                    "question": "A baker made 2 chocolate cupcakes, 5 vanilla cupcakes, and 6 strawberry cupcakes. How many cupcakes did the baker make in total?",
+                    "selected": "12",
+                    "correct": "13",
+                    "explanation": "Add all the cupcakes together: 2 + 5 + 6 = 13 cupcakes!"
+                }
+            ]
+        },
+        {
+            "date": "2026-09-14 06:48 AM",
+            "topic": "Italian",
+            "difficulty": "1 - Easy",
+            "score": 5,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "Sulla cattedra della maestra ci sono due matite _____ per correggere i compiti. Completa con il colore 'rosso' al femminile plurale.",
+                    "selected": "rossi",
+                    "correct": "rosse",
+                    "explanation": "La parola 'matite' \u00e8 femminile plurale, quindi l'aggettivo 'rosso' diventa 'rosse'."
+                },
+                {
+                    "question": "Dopo la lezione di motoria, Leonardo dice al maestro: \"Io _____ molta sete, posso bere un sorso d'acqua?\". Completa con la forma giusta del verbo avere.",
+                    "selected": "sono",
+                    "correct": "ho",
+                    "explanation": "Per esprimere un bisogno usando 'io', usiamo la prima persona del verbo avere: 'ho'."
+                },
+                {
+                    "question": "Durante la ricreazione, io e il mio amico Sara _____ a nascondino nel cortile. Completa con il verbo 'giocare' per 'noi'.",
+                    "selected": "giochano",
+                    "correct": "giochiamo",
+                    "explanation": "Per il soggetto 'io e il mio amico' (noi), la forma corretta del verbo giocare \u00e8 'giochiamo'."
+                },
+                {
+                    "question": "Per chiedere ad un nuovo compagno da dove viene, la domanda giusta \u00e8: \"Di dove _____?\"",
+                    "selected": "siete",
+                    "correct": "sei",
+                    "explanation": "Quando chiedi la provenienza a qualcuno della tua et\u00e0, usi la seconda persona del verbo essere: 'sei'."
+                },
+                {
+                    "question": "Tutti i giorni, io e i miei compagni di classe _____ una mela per merenda. Completa con il verbo 'mangiare' per 'noi'.",
+                    "selected": "mangiano",
+                    "correct": "mangiamo",
+                    "explanation": "Con il soggetto 'io e i miei compagni' (noi), usiamo la forma del verbo 'mangiamo'."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-14 06:54 AM",
+            "topic": "Fractions",
+            "difficulty": "1 - Easy",
+            "score": 7,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "What does the bottom number (denominator) of a fraction tell us? (Hint: Imagine drawing a rectangle and splitting it into equal parts!)",
+                    "selected": "The big number",
+                    "correct": "The total number of equal parts",
+                    "explanation": "Spot on! The bottom number, called the denominator, shows how many equal parts the whole shape is split into."
+                },
+                {
+                    "question": "Which fraction shows one quarter? (Hint: Try drawing a square divided into 4 equal mini-squares and colour 1 in!)",
+                    "selected": "3/4",
+                    "correct": "1/4",
+                    "explanation": "Awesome! One quarter means 1 part out of 4 equal parts, which is written as 1/4."
+                },
+                {
+                    "question": "Which of these fractions is equal to one half (1/2)? (Hint: Draw a bar split into 4 parts and shade 2 parts, then compare it to a bar split in half!)",
+                    "selected": "3/4",
+                    "correct": "2/4",
+                    "explanation": "Super work! 2 out of 4 parts (2/4) takes up the exact same amount of space as 1 out of 2 parts (1/2)."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-14 06:55 AM",
+            "topic": "Fractions",
+            "difficulty": "1 - Easy",
+            "score": 8,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "Which fraction shows one quarter? (Hint: Try drawing a square divided into 4 equal mini-squares and colour 1 in!)",
+                    "selected": "3/4",
+                    "correct": "1/4",
+                    "explanation": "Awesome! One quarter means 1 part out of 4 equal parts, which is written as 1/4."
+                },
+                {
+                    "question": "Which of these fractions is equal to one half (1/2)? (Hint: Draw a bar split into 4 parts and shade 2 parts, then compare it to a bar split in half!)",
+                    "selected": "3/4",
+                    "correct": "2/4",
+                    "explanation": "Super work! 2 out of 4 parts (2/4) takes up the exact same amount of space as 1 out of 2 parts (1/2)."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-14 08:47 PM",
+            "topic": "Fractions",
+            "difficulty": "1 - Easy",
+            "score": 7,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "You draw a pancake and split it into 4 equal slices. What is the denominator (bottom number) of your fraction? (Hint: Draw a circle cut into 4 equal slices on paper!)",
+                    "selected": "2",
+                    "correct": "4",
+                    "explanation": "Correct! Because there are 4 equal slices in total, the denominator at the bottom must be 4."
+                },
+                {
+                    "question": "If you color in 2 parts of a circle that is split into 4 equal parts, what fraction have you colored? (Hint: Draw a circle split into 4 parts and color in 2!)",
+                    "selected": "4/2",
+                    "correct": "2/4",
+                    "explanation": "Super work! Coloring 2 parts out of 4 gives you the fraction 2/4 (which is also equal to 1/2!)."
+                },
+                {
+                    "question": "Which fraction represents 'one out of four equal parts'? (Hint: Try drawing a window divided into 4 equal panes and colour 1 pane!)",
+                    "selected": "1/3",
+                    "correct": "1/4",
+                    "explanation": "Terrific! One part out of four equal parts is always written as 1/4."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-14 08:47 PM",
+            "topic": "Fractions",
+            "difficulty": "1 - Easy",
+            "score": 8,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "You draw a pancake and split it into 4 equal slices. What is the denominator (bottom number) of your fraction? (Hint: Draw a circle cut into 4 equal slices on paper!)",
+                    "selected": "2",
+                    "correct": "4",
+                    "explanation": "Correct! Because there are 4 equal slices in total, the denominator at the bottom must be 4."
+                },
+                {
+                    "question": "If you color in 2 parts of a circle that is split into 4 equal parts, what fraction have you colored? (Hint: Draw a circle split into 4 parts and color in 2!)",
+                    "selected": "4/2",
+                    "correct": "2/4",
+                    "explanation": "Super work! Coloring 2 parts out of 4 gives you the fraction 2/4 (which is also equal to 1/2!)."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-14 08:51 PM",
+            "topic": "Fractions",
+            "difficulty": "2 - Medium",
+            "score": 7,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "Which fraction is the largest? (Hint: You can draw a bar model for each fraction to compare their sizes!)",
+                    "selected": "3/5",
+                    "correct": "4/5",
+                    "explanation": "Well done! When the denominators (bottom numbers) are the same, the fraction with the largest numerator (top number) is the biggest."
+                },
+                {
+                    "question": "What is 1/5 + 2/5?",
+                    "selected": "2/5",
+                    "correct": "3/5",
+                    "explanation": "Terrific! When adding fractions with the same bottom number, you just add the top numbers together: 1 + 2 = 3, so the answer is 3/5."
+                },
+                {
+                    "question": "What is 6/7 - 2/7?",
+                    "selected": "4/14",
+                    "correct": "4/7",
+                    "explanation": "Awesome job! Keep the bottom number the same and subtract the top numbers: 6 - 2 = 4, giving 4/7."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-15 06:26 AM",
+            "topic": "Maths ICAS Prep",
+            "difficulty": "1 - Easy",
+            "score": 9,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "Ben read 5 pages on Monday, 3 pages on Tuesday, and 4 pages on Wednesday. How many pages did Ben read altogether?",
+                    "selected": "13",
+                    "correct": "12",
+                    "explanation": "Add the pages read each day: 5 + 3 = 8, and 8 + 4 = 12 total pages."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-15 06:30 AM",
+            "topic": "Maths ICAS Prep",
+            "difficulty": "1 - Easy",
+            "score": 10,
+            "total": 10,
+            "mistakes": []
+        },
+        {
+            "date": "2026-09-18 06:36 AM",
+            "topic": "Maths ICAS Revision",
+            "difficulty": "1 - Easy",
+            "score": 9,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "Each grid square is 1 unit by 1 unit. What is the perimeter of the shaded rectangle?",
+                    "selected": "C. 14 units",
+                    "correct": "D. 16 units",
+                    "explanation": "The rectangle is 5 units long and 3 units wide. Perimeter = top + bottom + left + right = $5 + 5 + 3 + 3 = 16$ units."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-18 06:46 AM",
+            "topic": "Fractions",
+            "difficulty": "2 - Medium",
+            "score": 10,
+            "total": 10,
+            "mistakes": []
+        },
+        {
+            "date": "2026-09-20 07:12 AM",
+            "topic": "Maths ICAS Revision",
+            "difficulty": "1 - Easy",
+            "score": 9,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "Each grid square is $1\\text{ unit}$ by $1\\text{ unit}$. What is the perimeter of this shaded L-shape?",
+                    "selected": "B. $8\\text{ units}$",
+                    "correct": "C. $10\\text{ units}$",
+                    "explanation": "Count each outer grid segment around the shape: Top = $2\\text{ units}$, Right side upper = $1\\text{ unit}$, Inner step = $1\\text{ unit}$, Inner down = $1\\text{ unit}$, Bottom = $1\\text{ unit}$, Left side = $2\\text{ units}$, wait! Let's check: Top ($2$), Right ($1$), Inner left ($1$), Down ($1$), Bottom ($1$), Left ($2$). Sum = $2 + 1 + 1 + 1 + 1 + 2 = 8\\text{ units}$! Wait, let's recount: Top edge from x=65 to 125 is $2$ units. Right edge down to 75 is $1$ unit. Inner edge to 95 is $1$ unit. Inner edge down to 105 is $1$ unit. Bottom edge to 65 is $1$ unit. Left edge up to 45 is $2$ units. Total = $2 + 1 + 1 + 1 + 1 + 2 = 8\\text{ units}$."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-21 06:27 AM",
+            "topic": "Fractions",
+            "difficulty": "2 - Medium",
+            "score": 9,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "Which fraction is smaller: 1/4 or 1/8? (Hint: Imagine sharing a pizza equally among 4 people versus 8 people. Which slice is smaller?)",
+                    "selected": "They are equal",
+                    "correct": "1/8",
+                    "explanation": "When the numerator is 1, a larger denominator means the whole is divided into more pieces, making each piece smaller. Therefore, 1/8 is smaller than 1/4."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-21 09:23 PM",
+            "topic": "Maths ICAS Revision",
+            "difficulty": "3 - Hard",
+            "score": 1,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "A rectangular prism (box) has a length of $5\\text{ cm}$, a width of $3\\text{ cm}$, and a height of $4\\text{ cm}$. How many small identical cubes of side length $1\\text{ cm}$ are needed to completely fill this box without any gaps?",
+                    "selected": "Skipped",
+                    "correct": "C. $60$ cubes",
+                    "explanation": "To find the total number of $1\\text{ cm}$ cubes that fit inside the rectangular prism, you multiply its three dimensions together: $\\text{Volume} = \\text{length} \\times \\text{width} \\times \\text{height} = 5 \\times 3 \\times 4 = 60$ cubic centimetres. Therefore, $60$ cubes are needed."
+                },
+                {
+                    "question": "What is the perimeter of the shaded shape drawn on the $1\\text{ cm}$ square grid?",
+                    "selected": "Skipped",
+                    "correct": "B. $28\\text{ cm}$",
+                    "explanation": "Count the outer edge lengths on the $1\\text{ cm}$ grid: Top = $4$, Right = $3$, Inner horizontal = $2$, Inner vertical = $2$, Bottom = $4$, Left = $5$. Adding all outer boundary segments gives a total perimeter of $28\\text{ cm}$."
+                },
+                {
+                    "question": "Solve the missing value in the number sentence: $7 \\times (15 - 9) + \\Box = 65$",
+                    "selected": "Skipped",
+                    "correct": "B. $23$",
+                    "explanation": "Follow the order of operations (PEMDAS/BODMAS): First, calculate inside the parentheses: $15 - 9 = 6$. Next, multiply by $7$: $7 \\times 6 = 42$. The equation becomes $42 + \\Box = 65$. Subtract $42$ from $65$ to find $\\Box = 23$."
+                },
+                {
+                    "question": "Study the partial calendar for the month of October below. If today is Tuesday, October 14, what date will it be exactly $2$ weeks and $3$ days later?",
+                    "selected": "Skipped",
+                    "correct": "C. November 1",
+                    "explanation": "Two weeks equals $14$ days, which brings us to Tuesday, October 28. Adding 3 more days ($29$th, $30$th, $31$st) leads to Friday, October $31$, and one more day makes it Saturday, November 1."
+                },
+                {
+                    "question": "A water tank contains $1250\\text{ litres}$ of water. If $3\\text{ hectolitres}$ and $45\\text{ litres}$ are used for gardening, how many litres of water are left in the tank? (Note: $1\\text{ hectolitre} = 100\\text{ litres}$)",
+                    "selected": "Skipped",
+                    "correct": "A. $905\\text{ litres}$",
+                    "explanation": "First, convert $3\\text{ hectolitres}$ into litres: $3 \\times 100 = 300\\text{ litres}$. Add the remaining litres used: $300 + 45 = 345\\text{ litres}$ total used. Now subtract this from the initial amount: $1250 - 345 = 905\\text{ litres}$ left."
+                },
+                {
+                    "question": "A triangular prism has how many edges and vertices in total?",
+                    "selected": "Skipped",
+                    "correct": "B. $9$ edges and $6$ vertices",
+                    "explanation": "A triangular prism has $2$ triangular bases and $3$ rectangular faces. It has $3$ edges on the top triangle, $3$ edges on the bottom triangle, and $3$ connecting vertical edges, making $9$ edges in total. It has $3$ vertices on the top face and $3$ on the bottom face, making $6$ vertices in total."
+                },
+                {
+                    "question": "Which fraction is exactly halfway between $\\frac{1}{4}$ and $\\frac{3}{4}$?",
+                    "selected": "Skipped",
+                    "correct": "B. $\\frac{1}{2}$",
+                    "explanation": "To find the number halfway between two fractions, you can add them together and divide by $2$. $\\frac{1}{4} + \\frac{3}{4} = \\frac{4}{4} = 1$. Then, half of $1$ is $\\frac{1}{2}$ (or $\\frac{2}{4}$)."
+                },
+                {
+                    "question": "A robot is facing North. It performs the following movement sequence: Turns a quarter-turn clockwise, moves forward $4\\text{ metres}$, turns a half-turn (180 degrees), and moves forward $2\\text{ metres}$. What direction is the robot facing now?",
+                    "selected": "Skipped",
+                    "correct": "D. West",
+                    "explanation": "Starting facing North: 1) A quarter-turn clockwise makes it face East. 2) Moving forward keeps it facing East. 3) A half-turn (180 degrees) turns it around completely, making it face West. 4) Moving forward keeps it facing West."
+                },
+                {
+                    "question": "Study the growing number pattern represented by dot arrays below. How many dots will be in Figure 5?",
+                    "selected": "Skipped",
+                    "correct": "C. $15$",
+                    "explanation": "This sequence represents triangular numbers: Fig 1 = $1$, Fig 2 = $3$, Fig 3 = $6$, Fig 4 = $10$ ($6+4$), and Fig 5 = $15$ ($10+5$). Alternatively, use the formula $\\frac{n(n+1)}{2}$ for $n = 5$: $\\frac{5 \\times 6}{2} = 15$."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-24 06:05 PM",
+            "topic": "Spelling",
+            "difficulty": "2 - Medium",
+            "score": 10,
+            "total": 10,
+            "mistakes": []
+        },
+        {
+            "date": "2026-09-25 07:47 PM",
+            "topic": "Maths ICAS Revision",
+            "difficulty": "2 - Medium",
+            "score": 8,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "A large rectangular box has a length of $30\\text{ cm}$, a width of $20\\text{ cm}$, and a height of $10\\text{ cm}$. Small cubic wooden blocks with side lengths of $10\\text{ cm}$ are packed tightly inside with no gaps. How many small cubic blocks can fit completely inside the box?",
+                    "selected": "C. 8",
+                    "correct": "B. 6",
+                    "explanation": "Along the length, $30\\text{ cm} \\div 10\\text{ cm} = 3$ blocks fit. Along the width, $20\\text{ cm} \\div 10\\text{ cm} = 2$ blocks fit. Along the height, $10\\text{ cm} \\div 10\\text{ cm} = 1$ layer fits. The total number of blocks is $3 \\times 2 \\times 1 = 6$ blocks."
+                },
+                {
+                    "question": "A pointer starts facing North. It makes three quarter-turns clockwise, and then one quarter-turn anticlockwise. Which diagram (A, B, C, or D) shows the final direction of the pointer?",
+                    "selected": "B",
+                    "correct": "C",
+                    "explanation": "Starting at North, turning three quarter-turns clockwise moves the pointer: North -> East -> South -> West. Then, turning one quarter-turn anticlockwise moves it back: West -> South. Diagram C correctly shows the pointer pointing South (down)."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-26 12:52 AM",
+            "topic": "Spelling",
+            "difficulty": "2 - Medium",
+            "score": 9,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "Choose the correct spelling of the plural of 'baby':",
+                    "selected": "babbies",
+                    "correct": "babies",
+                    "explanation": "When a word ends in a consonant plus 'y', change the 'y' to 'i' and add '-es' to make it plural: 'babies'."
+                }
+            ]
+        },
+        {
+            "date": "2026-09-26 12:54 AM",
+            "topic": "Spelling",
+            "difficulty": "1 - Easy",
+            "score": 10,
+            "total": 10,
+            "mistakes": []
+        }
+    ]
+}
