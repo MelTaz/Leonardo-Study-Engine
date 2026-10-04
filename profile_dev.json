@@ -1,0 +1,25 @@
+{
+    "summary": {
+        "Maths ICAS Revision": {
+            "total_questions": 10,
+            "total_correct": 9
+        }
+    },
+    "history": [
+        {
+            "date": "2026-10-04 03:43 PM",
+            "topic": "Maths ICAS Revision",
+            "difficulty": "1 - Easy",
+            "score": 9,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "What is the result of $46 - 19$?",
+                    "selected": "A. $25$",
+                    "correct": "B. $27$",
+                    "explanation": "Subtract the ones first or use regrouping: $46 - 10 = 36$, and $36 - 9 = 27$."
+                }
+            ]
+        }
+    ]
+}

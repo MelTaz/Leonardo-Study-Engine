@@ -190,3 +190,4 @@ def save_profile(profile):
         token = get_github_token()
         if token:
             save_profile_to_github_squashed(token, profile)
+
