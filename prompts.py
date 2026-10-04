@@ -51,8 +51,8 @@ def get_standard_prompt(subject_focus, difficulty, history_context):
       - Leonardo attends an Italian bilingual school. Do NOT treat him as an absolute beginner; NEVER test isolated single-word flashcards.
       - NEVER include English translations in brackets next to Italian words in questions or options. Use Italian context or natural scenario prompts.
       - If difficulty is '1 - Easy': Realistic dialogues and everyday situational responses.
-      - If difficulty is '2 - Medium': Expressing preferences, daily routines, telling time, and question words.
-      - If difficulty is '3 - Hard': Present a short 2–3 sentence mini-story followed by a comprehension question in Italian.
+      - If difficulty is '2 - Medium': Expressing preferences, daily routines, telling time, and question words. Include free_text questions.
+      - If difficulty is '3 - Hard': Present a short 2–3 sentence mini-story followed by a comprehension question in Italian. Include free_text questions.
       - For any 'free_text' questions, ensure the expected correct_answer is concise (1 to 3 words) so a Year 3 student can type it easily.
       """
   elif subject_focus == "Fractions":
