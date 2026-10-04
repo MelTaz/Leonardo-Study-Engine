@@ -3,6 +3,10 @@
         "Maths ICAS Revision": {
             "total_questions": 10,
             "total_correct": 9
+        },
+        "Italian": {
+            "total_questions": 10,
+            "total_correct": 4
         }
     },
     "history": [
@@ -18,6 +22,51 @@
                     "selected": "A. $25$",
                     "correct": "B. $27$",
                     "explanation": "Subtract the ones first or use regrouping: $46 - 10 = 36$, and $36 - 9 = 27$."
+                }
+            ]
+        },
+        {
+            "date": "2026-10-04 03:46 PM",
+            "topic": "Italian",
+            "difficulty": "1 - Easy",
+            "score": 4,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "Hai sete durante la ricreazione a scuola. Cosa chiedi alla maestra?",
+                    "selected": "Skipped",
+                    "correct": "Posso bere un po' d'acqua?",
+                    "explanation": "Quando hai sete chiedi di poter bere."
+                },
+                {
+                    "question": "La lezione \u00e8 finita e devi tornare a casa. Prima di uscire dalla porta dici ai tuoi compagni:",
+                    "selected": "Skipped",
+                    "correct": "Arrivederci a domani!",
+                    "explanation": "Ci si saluta dicendo Arrivederci quando si va via."
+                },
+                {
+                    "question": "\u00c8 l'ora di cena e ti siedi a tavola con la famiglia. Prima di iniziare a mangiare si dice:",
+                    "selected": "Skipped",
+                    "correct": "Buon appetito!",
+                    "explanation": "Si augura Buon appetito prima di cominciare il pasto."
+                },
+                {
+                    "question": "Un tuo compagno ti presta la sua matita rossa. Tu cosa gli dici subito dopo?",
+                    "selected": "Skipped",
+                    "correct": "Grazie mille!",
+                    "explanation": "\u00c8 gentile dire grazie quando qualcuno ti aiuta o ti presta qualcosa."
+                },
+                {
+                    "question": "Vai a dormire nella tua cameretta e dai la buonanotte alla mamma. Lei risponde:",
+                    "selected": "Skipped",
+                    "correct": "Sogni d'oro!",
+                    "explanation": "Sogni d'oro \u00e8 un augurio affettuoso prima di andare a dormire."
+                },
+                {
+                    "question": "Ti cade accidentalmente la gomma da cancellare sul banco del tuo vicino. Per essere educato dici:",
+                    "selected": "Skipped",
+                    "correct": "Scusa!",
+                    "explanation": "Si dice scusa quando si commette una piccola distrazione."
                 }
             ]
         }

@@ -91,6 +91,9 @@ st.title("🚀 AI Study Prep Engine")
 
 import database
 
+if database.IS_LOCAL:
+    st.warning("🛠️ **DEV MODE ACTIVE** - Reading and writing to local test files. Live production database is completely isolated.", icon="🚧")
+
 # --- PROFILE & PROGRESS TRACKER FUNCTIONS ---
 profile_data = database.load_profile()
 
