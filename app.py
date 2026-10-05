@@ -1,3 +1,4 @@
+from rewards import render_rewards_tab
 from utils import escape_dollars, clean_display_text
 from prompts import get_maths_icas_prompt, get_standard_prompt
 from api import generate_quiz_content
@@ -148,7 +149,7 @@ def calculate_streak(history) -> int:
     return streak
 
 # --- CREATE TABS ---
-tab1, tab2 = st.tabs(["🎓 Leonardo's Zone", "📊 Parent Dashboard"])
+tab1, tab_rewards, tab2 = st.tabs(["🎓 Leonardo's Zone", "🏆 Rewards Vault", "📊 Parent Dashboard"])
 
 # ==========================================
 # TAB 1: THE STUDENT ZONE
@@ -400,8 +401,7 @@ with tab1:
                 <h2 style="color: #333;">{title}</h2>
                 <h3 style="color: #444; font-style: italic;">"{selected_message}"</h3>
             </div>
-            """, unsafe_allow_html=True)
-            # --- END NEW LOGIC ---
+            """, unsafe_allow_html=True)            
 
             # Continue with your existing code saving the log to the profile...
             topic = st.session_state.quiz_subject
@@ -422,7 +422,39 @@ with tab1:
                 "mistakes": incorrect_summary
             }
             profile_data["history"].append(quiz_log)
+
+            # 👇 --- START OF BADGE REWARDS CHECK --- 👇
+            if "badges" not in profile_data:
+                profile_data["badges"] = 0
+
+            badges_earned_this_session = 0
+
+            # Rule 1: Perfect score (10/10) on Hard difficulty
+            if score == 10 and diff == "3 - Hard":
+                badges_earned_this_session += 1
+                st.toast("🎉 +1 Badge earned for a perfect Hard score!", icon="🏅")
+
+            # Rule 2: 5-day streak milestone check 
+            current_streak = profile_data.get("streak", 0)
+            last_rewarded_streak = profile_data.get("last_streak_badge_milestone", 0)
+
+            if current_streak > 0 and current_streak % 5 == 0 and current_streak != last_rewarded_streak:
+                badges_earned_this_session += 1
+                profile_data["last_streak_badge_milestone"] = current_streak
+                st.toast(f"🔥 Amazing! {current_streak}-day streak milestone reached: +1 Badge!", icon="🏅")
+
+            # Update total balance
+            if badges_earned_this_session > 0:
+                profile_data["badges"] += badges_earned_this_session
+            # 👆 --- END OF BADGE REWARDS CHECK --- 👆
+
             database.save_profile(profile_data)
+
+# ==========================================
+# TAB 2: THE REWARDS VAULT
+# ==========================================
+with tab_rewards:
+    render_rewards_tab(profile_data, database.save_profile)
 
 # ==========================================
 # TAB 2: THE PARENT DASHBOARD

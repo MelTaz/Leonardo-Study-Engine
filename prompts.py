@@ -69,6 +69,16 @@ def get_standard_prompt(subject_focus, difficulty, history_context):
       elif difficulty == "3 - Hard":
           subject_rules += "\n- Focus on abstract numerical fractions and complex multi-step word problems without drawing hints."
 
+  elif subject_focus == "Spelling":
+        subject_rules = """
+        SPECIAL RULES FOR SPELLING:
+        - Generate a brand new, randomized set of 10 spelling words appropriate for an advanced Year 3 student.
+        - Ensure the words change completely with every new quiz generated—do not reuse the same list.
+        - Mix up word types (e.g., compound words, silent letters, double consonants, or common homophones).
+        - Provide a mix of 'multiple_choice' (identifying the correct spelling among three misspellings) and 'free_text' (type the correct spelling based on a sentence definition).
+        """
+
+
   # --- ASSEMBLE FINAL PROMPT ---
   return f"""
   Generate 10 practice questions for a Year 3 student. 
