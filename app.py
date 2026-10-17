@@ -2,6 +2,7 @@ from rewards import render_rewards_tab
 from utils import escape_dollars, clean_display_text
 from prompts import get_maths_icas_prompt, get_standard_prompt
 from api import generate_quiz_content
+import audio
 from datetime import datetime, timedelta
 import pandas as pd
 import os
@@ -272,6 +273,15 @@ with tab1:
                 )
             # 👆 --- END OF NEW CODE --- 👆
             
+            # 🎧 --- Audio for spelling / pronunciation questions --- 🎧
+            target_word = (q.get("target_word") or "").strip()
+            if not target_word and st.session_state.quiz_subject == "Spelling" and q.get("type") == "free_text":
+                target_word = (q.get("correct_answer") or "").strip()
+
+            if target_word:
+                st.caption("🎧 **Listen to the word:**")
+                audio.play_audio(target_word)
+            
             unique_key = f"q_{st.session_state.quiz_id}_{i}"
             
             if q.get('type') == 'free_text':
@@ -279,6 +289,9 @@ with tab1:
                     st.caption("💡 *Tip: To write an accent, just type an apostrophe after the letter (e.g. type **e'** for **è**).*")
                     input_label = "Type your answer in Italian (Scrivi in italiano):"
                     input_placeholder = "Scrivi la risposta in italiano qui..."
+                elif st.session_state.quiz_subject == "Spelling":
+                    input_label = "Type the spelling word here:"
+                    input_placeholder = "Type the word you hear..."
                 else:
                     input_label = "Type your answer here:"
                     input_placeholder = ""

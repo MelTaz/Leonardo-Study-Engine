@@ -14,6 +14,7 @@ def generate_quiz_content(client, prompt: str):
                 "question_type": {"type": "string"},
                 "question": {"type": "string"},
                 "visual_code": {"type": "string"},
+                "target_word": {"type": "string"},
                 "options": {"type": "array", "items": {"type": "string"}},
                 "correct_answer": {"type": "string"},
                 "explanation": {"type": "string"}
