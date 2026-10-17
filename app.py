@@ -275,7 +275,7 @@ with tab1:
             
             # 🎧 --- Audio for spelling / pronunciation questions --- 🎧
             target_word = (q.get("target_word") or "").strip()
-            if not target_word and st.session_state.quiz_subject == "Spelling" and q.get("type") == "free_text":
+            if not target_word and (st.session_state.quiz_subject == "Spelling" or q.get("type") == "audio_spelling"):
                 target_word = (q.get("correct_answer") or "").strip()
 
             if target_word:
@@ -284,12 +284,12 @@ with tab1:
             
             unique_key = f"q_{st.session_state.quiz_id}_{i}"
             
-            if q.get('type') == 'free_text':
+            if q.get('type') in ('free_text', 'audio_spelling'):
                 if st.session_state.quiz_subject == "Italian":
                     st.caption("💡 *Tip: To write an accent, just type an apostrophe after the letter (e.g. type **e'** for **è**).*")
                     input_label = "Type your answer in Italian (Scrivi in italiano):"
                     input_placeholder = "Scrivi la risposta in italiano qui..."
-                elif st.session_state.quiz_subject == "Spelling":
+                elif st.session_state.quiz_subject == "Spelling" or q.get("type") == "audio_spelling":
                     input_label = "Type the spelling word here:"
                     input_placeholder = "Type the word you hear..."
                 else:
@@ -324,7 +324,7 @@ with tab1:
                 clean_correct = escape_dollars(correct_ans)
                 
                 user_ans = user_answers[i]
-                is_free = (q.get('type') == 'free_text')
+                is_free = (q.get('type') in ('free_text', 'audio_spelling'))
                 is_correct, is_accent_tip = check_answer(
                     user_ans=user_ans,
                     correct_ans=correct_ans,

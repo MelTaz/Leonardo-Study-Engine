@@ -31,3 +31,4 @@ def play_audio(word_or_phrase: str, lang: str = "en", tld: str = "com.au"):
     audio_data = get_audio_bytes(word_or_phrase, lang=lang, tld=tld)
     if audio_data:
         st.audio(audio_data, format="audio/mp3")
+

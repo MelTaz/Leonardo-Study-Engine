@@ -38,70 +38,72 @@ IMPORTANT FOR VISUAL CODE:
 """
 
 def get_standard_prompt(subject_focus, difficulty, history_context):
-  """Generates the prompt for all standard subjects outside of ICAS."""
+    """Generates the prompt for all standard subjects outside of ICAS."""
   
-  # --- GLOBAL RULES ---
-  global_rules = "- Use the metric system ONLY (e.g., kilometres, metres, kilograms, grams, Celsius, litres). Do NOT use miles, feet, pounds, or Fahrenheit."
+    # --- GLOBAL RULES ---
+    global_rules = "- Use the metric system ONLY (e.g., kilometres, metres, kilograms, grams, Celsius, litres). Do NOT use miles, feet, pounds, or Fahrenheit."
 
-  # --- SUBJECT-SPECIFIC RULES ---
-  subject_rules = ""
-  if subject_focus == "Italian":
-      subject_rules = """
-      SPECIAL RULES FOR ITALIAN (BILINGUAL SCHOOL STUDENT):
-      - Leonardo attends an Italian bilingual school. Do NOT treat him as an absolute beginner; NEVER test isolated single-word flashcards.
-      - NEVER include English translations in brackets next to Italian words in questions or options. Use Italian context or natural scenario prompts.
-      - If difficulty is '1 - Easy': Realistic dialogues and everyday situational responses.
-      - If difficulty is '2 - Medium': Expressing preferences, daily routines, telling time, and question words. Include free_text questions.
-      - If difficulty is '3 - Hard': Present a short 2–3 sentence mini-story followed by a comprehension question in Italian. Include free_text questions.
-      - For any 'free_text' questions, ensure the expected correct_answer is concise (1 to 3 words) so a Year 3 student can type it easily.
-      """
-  elif subject_focus == "Fractions":
-      subject_rules = """
-      SPECIAL RULES FOR FRACTIONS:
-      - Do NOT use confusing emojis to represent fractions. 
-      - Instead, embed helpful drawing hints directly into the question or explanation.
-      - NEVER use LaTeX or math formatting inside visual_code HTML/SVG.
-      """
-      if difficulty == "1 - Easy":
-          subject_rules += "\n- Include a drawing prompt or hint in almost every question, helping him visualize shapes."
-      elif difficulty == "2 - Medium":
-          subject_rules += "\n- Mix standard word problems with occasional drawing hints."
-      elif difficulty == "3 - Hard":
-          subject_rules += "\n- Focus on abstract numerical fractions and complex multi-step word problems without drawing hints."
+    # --- SUBJECT-SPECIFIC RULES ---
+    subject_rules = ""
+    if subject_focus == "Italian":
+        subject_rules = """
+        SPECIAL RULES FOR ITALIAN (BILINGUAL SCHOOL STUDENT):
+        - Leonardo attends an Italian bilingual school. Do NOT treat him as an absolute beginner; NEVER test isolated single-word flashcards.
+        - NEVER include English translations in brackets next to Italian words in questions or options. Use Italian context or natural scenario prompts.
+        - If difficulty is '1 - Easy': Realistic dialogues and everyday situational responses.
+        - If difficulty is '2 - Medium': Expressing preferences, daily routines, telling time, and question words. Include free_text questions.
+        - If difficulty is '3 - Hard': Present a short 2–3 sentence mini-story followed by a comprehension question in Italian. Include free_text questions.
+        - For any 'free_text' questions, ensure the expected correct_answer is concise (1 to 3 words) so a Year 3 student can type it easily.
+        """
+    elif subject_focus == "Fractions":
+        subject_rules = """
+        SPECIAL RULES FOR FRACTIONS:
+        - Do NOT use confusing emojis to represent fractions. 
+        - Instead, embed helpful drawing hints directly into the question or explanation.
+        - NEVER use LaTeX or math formatting inside visual_code HTML/SVG.
+        """
+        if difficulty == "1 - Easy":
+            subject_rules += "\n- Include a drawing prompt or hint in almost every question, helping him visualize shapes."
+        elif difficulty == "2 - Medium":
+            subject_rules += "\n- Mix standard word problems with occasional drawing hints."
+        elif difficulty == "3 - Hard":
+            subject_rules += "\n- Focus on abstract numerical fractions and complex multi-step word problems without drawing hints."
 
-  elif subject_focus == "Spelling":
-        subject_rules = '''
+    elif subject_focus == "Spelling":
+        subject_rules = """
         SPECIAL RULES FOR SPELLING:
-        - Generate a brand new, randomized set of 10 spelling words appropriate for an advanced Year 3 student.
-        - Ensure the words change completely with every new quiz generated.
-        - Mix up word types (e.g., compound words, silent letters, double consonants, or common homophones).
-        - Provide a mix of 'multiple_choice' and 'free_text' questions.
-        - For 'free_text' questions, it is an AUDIO spelling test. You MUST provide the exact word to be spelled in the 'target_word' JSON field.
-        - IMPORTANT: For 'free_text' questions, the 'question' field MUST NOT contain the spelling word. It should only say "Spell the word you hear. Definition: [insert short definition]"
-        '''
+        - Generate 10 spelling words appropriate for a Year 3 student.
+        - RETESTING PRIOR MISTAKES: If historical mistakes are listed above, prioritize including those words (or similar target spelling concepts) in this quiz to retest his mastery. Fill any remaining spots with fresh, randomized Year 3 spelling words so he does not repeat the exact same overall set each time.
+        - Provide a balanced mix of 3 question types across the words:
+          1. 'multiple_choice': Identifying the correct spelling among three misspellings.
+          2. 'free_text': Type the correct spelling based on a written sentence/definition.
+          3. 'audio_spelling': A "Spelling Bee" experience. The 'question' MUST NOT include the target spelling word—only provide a definition or a sentence with a blank. The 'correct_answer' MUST be exactly the target word and nothing else.
+        """
 
-  # --- ASSEMBLE FINAL PROMPT ---
-  return f"""
-  Generate 10 practice questions for a Year 3 student. 
-  Topic: {subject_focus}
-  Difficulty Level: {difficulty}
-  
-  {history_context}
-  
-  {subject_rules}
-  
-  GLOBAL RULES:
-  {global_rules}
+    # --- ASSEMBLE FINAL PROMPT ---
+    return f"""
+    Generate 10 practice questions for a Year 3 student. 
+    Topic: {subject_focus}
+    Difficulty Level: {difficulty}
+    
+    {history_context}
+    
+    {subject_rules}
+    
+    GLOBAL RULES:
+    {global_rules}
 
-  OUTPUT FORMAT REQUIREMENTS:
-  Return valid JSON ONLY as a list of 10 objects. Each object MUST have:
-  {{
-    "type": "multiple_choice" or "free_text",
-    "question_type": "standard", "visual_svg", or "visual_html",
-    "question": "The text of the question",
-    "target_word": "For free_text Spelling questions, the single target word to spell (otherwise empty string '')",
-    "options": ["A. ...", "B. ...", "C. ...", "D. ..."] (or [] if free_text),
-    "correct_answer": "Exact text of the correct answer or spelling word",
-    "explanation": "Clear explanation"
-  }}
-  """
+    IMPORTANT FORMATTING RULE:
+    If the Topic is 'Spelling', please generate a mix of 'multiple_choice', 'free_text', and 'audio_spelling' questions.
+    If the Topic is 'Italian', please generate a mix of 'multiple_choice' and 'free_text' questions. 
+    For all other topics, generate ONLY 'multiple_choice' questions.
+
+    Return the result strictly as a JSON list where each item has:
+    - "type": strictly either "multiple_choice", "free_text", or "audio_spelling"
+    - "question_type": "visual_svg", "visual_html", or "standard"
+    - "question": The text of the question (use LaTeX like $\\\\frac{{1}}{{2}}$ where appropriate. Escape currency as \\\\$5)
+    - "visual_code": "Raw SVG string or HTML markup IF question_type is visual_svg or visual_html, else empty string ''"
+    - "options": A list of 4 multiple-choice options (leave as an empty list [] if type is free_text or audio_spelling)
+    - "correct_answer": The exact correct answer. If free_text or audio_spelling, provide the exact word or phrase they should type.
+    - "explanation": A brief, encouraging explanation of the answer
+    """

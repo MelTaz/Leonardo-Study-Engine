@@ -7,6 +7,10 @@
         "Italian": {
             "total_questions": 10,
             "total_correct": 4
+        },
+        "Spelling": {
+            "total_questions": 10,
+            "total_correct": 0
         }
     },
     "history": [
@@ -69,6 +73,76 @@
                     "explanation": "Si dice scusa quando si commette una piccola distrazione."
                 }
             ]
+        },
+        {
+            "date": "2026-10-05 05:55 PM",
+            "topic": "Spelling",
+            "difficulty": "2 - Medium",
+            "score": 0,
+            "total": 10,
+            "mistakes": [
+                {
+                    "question": "Which of the following words is spelt correctly?",
+                    "selected": "Skipped",
+                    "correct": "whistle",
+                    "explanation": "The word 'whistle' contains a silent 't' and begins with 'wh'."
+                },
+                {
+                    "question": "Type the correct spelling of the missing word: We borrowed three story books from the local _______.",
+                    "selected": "Skipped",
+                    "correct": "library",
+                    "explanation": "The correct spelling is 'library', which has an 'r' before and after the 'a'."
+                },
+                {
+                    "question": "Choose the correct spelling of the word that means to vanish from sight:",
+                    "selected": "Skipped",
+                    "correct": "disappear",
+                    "explanation": "'Disappear' is formed with the prefix 'dis-' and the root word 'appear', so it has one 's' and double 'p'."
+                },
+                {
+                    "question": "Which option shows the correct spelling of the word for a place where someone lives?",
+                    "selected": "Skipped",
+                    "correct": "address",
+                    "explanation": "The word 'address' is spelt with double 'd' and double 's'."
+                },
+                {
+                    "question": "Type the correct spelling of the missing word: The brave _______ rode his horse while wearing heavy metal armour.",
+                    "selected": "cowboy",
+                    "correct": "knight",
+                    "explanation": "A medieval warrior in armour is a 'knight', which starts with a silent 'k' and contains 'gh'."
+                },
+                {
+                    "question": "Select the correct spelling of the compound word:",
+                    "selected": "Skipped",
+                    "correct": "sunflower",
+                    "explanation": "'Sunflower' is a compound word formed by joining 'sun' and 'flower'."
+                },
+                {
+                    "question": "Type the correct spelling of the missing word: She threw the tennis ball and her brother _______ it safely.",
+                    "selected": "Skipped",
+                    "correct": "caught",
+                    "explanation": "The past tense of catch is 'caught', spelt with 'augh'."
+                },
+                {
+                    "question": "Which is the correct spelling for a piece of land surrounded by water?",
+                    "selected": "Skipped",
+                    "correct": "island",
+                    "explanation": "The word 'island' features a silent letter 's'."
+                },
+                {
+                    "question": "Identify the correct spelling of the word with the suffix '-ful':",
+                    "selected": "Skipped",
+                    "correct": "careful",
+                    "explanation": "When the suffix '-ful' is added to 'care', it is spelt with only one 'l'."
+                },
+                {
+                    "question": "Type the correct spelling of the missing word: In the season of _______, the green leaves turn orange and fall from the branches.",
+                    "selected": "Skipped",
+                    "correct": "autumn",
+                    "explanation": "The word 'autumn' ends with a silent 'n'."
+                }
+            ]
         }
-    ]
+    ],
+    "badges": 0
 }
