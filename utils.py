@@ -18,10 +18,11 @@ def escape_dollars(text: str, subject: str = None) -> str:
     return re.sub(r'(?<!\\)\$', r'\\$', str(text))
 
 
-def clean_display_text(text: str, is_math: bool = False, is_icas: bool = False) -> str:
+def clean_display_text(text: str, is_math: bool = False, is_icas: bool = False, *args, **kwargs) -> str:
     """
     Cleans raw question text for Streamlit display by replacing HTML line breaks (<br>) 
     with Markdown breaks, and keeping math LaTeX intact for math subjects.
+    Accepts positional arguments, is_math, and is_icas for full backward compatibility.
     """
     if not isinstance(text, str):
         return "" if text is None else str(text)
@@ -30,6 +31,7 @@ def clean_display_text(text: str, is_math: bool = False, is_icas: bool = False) 
     cleaned = text.replace("<br>", "  \n").replace("<br/>", "  \n").replace("<br />", "  \n")
     
     # Math subjects (ICAS, Fractions, Multiplication & Division) need $ intact for LaTeX math
-    if is_math or is_icas:
+    math_flag = is_math or is_icas or kwargs.get('is_math') or kwargs.get('is_icas')
+    if math_flag:
         return cleaned
     return escape_dollars(cleaned)

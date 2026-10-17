@@ -1,4 +1,7 @@
 from rewards import render_rewards_tab
+import importlib
+import utils
+importlib.reload(utils)
 from utils import escape_dollars, clean_display_text
 from prompts import get_maths_icas_prompt, get_standard_prompt
 from api import generate_quiz_content
@@ -260,7 +263,7 @@ with tab1:
 
         user_answers = {}
         for i, q in enumerate(st.session_state.quiz_data):
-            st.write(f"**Question {i+1}:** {clean_display_text(q['question'], is_math=is_math)}")
+            st.write(f"**Question {i+1}:** {clean_display_text(q['question'], is_math)}")
             
             # 👇 --- START OF NEW CODE: Draw the picture if there is one --- 👇
             q_type = q.get("question_type", "standard")
