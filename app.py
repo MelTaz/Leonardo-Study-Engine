@@ -255,12 +255,12 @@ with tab1:
         st.divider()
         st.subheader(f"📝 Practice Quiz: {st.session_state.quiz_subject} ({st.session_state.quiz_difficulty})")
 
-        # Check if the subject is Maths ICAS Revision
-        is_icas = (st.session_state.quiz_subject == "Maths ICAS Revision")
+        # Check if the subject is a Math subject (requires LaTeX rendering)
+        is_math = st.session_state.quiz_subject in ["Maths ICAS Revision", "Fractions", "Multiplication and Division"]
 
         user_answers = {}
         for i, q in enumerate(st.session_state.quiz_data):
-            st.write(f"**Question {i+1}:** {clean_display_text(q['question'], is_icas=is_icas)}")
+            st.write(f"**Question {i+1}:** {clean_display_text(q['question'], is_math=is_math)}")
             
             # 👇 --- START OF NEW CODE: Draw the picture if there is one --- 👇
             q_type = q.get("question_type", "standard")
