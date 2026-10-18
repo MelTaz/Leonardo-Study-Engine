@@ -77,8 +77,8 @@ def get_standard_prompt(subject_focus, difficulty, history_context):
         SPECIAL RULES FOR SPELLING:
         - Generate 10 spelling words appropriate for a Year 3 student.
         - RETESTING PRIOR MISTAKES: If historical mistakes are listed above, prioritize including those words (or similar target spelling concepts) in this quiz to retest his mastery. Fill any remaining spots with fresh, randomized Year 3 spelling words so he does not repeat the exact same overall set each time.
-        - Provide a balanced mix of 3 question types across the words:
-          1. 'multiple_choice': Identifying the correct spelling among three misspellings.
+        - Provide a balanced mix of 3 question types:
+          1. 'multiple_choice': Identifying the correct spelling among three misspellings (do not include audio).
           2. 'free_text': Type the correct spelling based on a written sentence/definition.
           3. 'audio_spelling': A "Spelling Bee" experience. The 'question' MUST NOT include the target spelling word—only provide a definition or a sentence with a blank. The 'correct_answer' MUST be exactly the target word and nothing else.
         """
